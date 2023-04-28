@@ -37,6 +37,8 @@ Use the entire OpenAI URL including the deployment name and API version
 
 ## Changelog
 
+- **Version 1.0.0.3:**
+  - Fixing the missing/blank app issue. 
 - **Version 1.0.0.2:**
   - Removed an unused HTTP with Azure AD connector from the solution. 
 - **Version 1.0.0.1:**
