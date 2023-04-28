@@ -31,7 +31,9 @@ To use Meet GPT, follow these steps:
 
 1. Deploy the app to your PowerPlatform environment by importing the PowerPlatform solution in the ./latest folder. You can learn how to import a PowerPlatform solution by following the steps in this [Microsoft Learn guide](https://docs.microsoft.com/learn/modules/import-solutions/).
 2. Set the `OpenAI_Key` and `OpenAI_URL` environment variables to the appropriate values for your Azure Open AI service deployment.
-4. Use the `mgpt_getResponse` flow to communicate with the Azure Open AI service deployment API and generate responses to user input.
+Use the entire OpenAI URL including the deployment name and API version
+![Screenshot of OpenAI Studio Code Sample](images/AzureOpenAI_URL.png)
+4. The `mgpt_getResponse` flow communicates with the Azure Open AI service deployment API.
 
 ## Changelog
 
