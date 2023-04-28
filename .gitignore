@@ -1,0 +1,31 @@
+# Windows thumbnail cache files
+Thumbs.db
+
+# Files that Windows adds to downloaded files
+*:Zone.Identifier
+
+# Windows desktop.ini files
+desktop.ini
+
+# Recycle Bin specific files
+$RECYCLE.BIN/
+
+# Windows temporary files
+*.tmp
+*.bak
+*.swp
+
+# Windows system files
+pagefile.sys
+hiberfil.sys
+
+# Windows shortcut files
+*.lnk
+
+# Windows file synchronization metadata
+.sync/
+.DS_Store
+
+# Windows file history and backup files
+FileHistory/
+WindowsBackup/
