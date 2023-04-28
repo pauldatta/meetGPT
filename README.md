@@ -35,6 +35,8 @@ To use Meet GPT, follow these steps:
 
 ## Changelog
 
+- **Version 1.0.0.2:**
+  - Removed an unused HTTP with Azure AD connector from the solution. 
 - **Version 1.0.0.1:**
   - This app lets you send prompts to Azure Open AI and adjust temperature settings through a user-friendly interface.
   - Created in a fast and fun hackathon mode in just 4 hours.
@@ -45,7 +47,6 @@ To use Meet GPT, follow these steps:
 - Gallery view and UI design are being improved.
 - Message send/chat flow is being improved.
 
-Certainly! Here's a Roadmap section with icons for each item, allowing you to mark them as Work in Progress (WIP), Done, or Planned:
 
 ## Roadmap
 
