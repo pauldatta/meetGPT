@@ -8,7 +8,7 @@ Welcome to Meet GPT! This allows business users to experience Azure Open AI Mode
 - Stores user data in Dataverse tables for easy analysis
 - More features to come!
 
-![Screenshot of Meet GPT app](images/MeetGPT_1_0_0_1.png)
+![Screenshot of Meet GPT app](images/MeetGPT_1_0_0_4.png)
 
 ## Pre-requisites
 
@@ -37,6 +37,10 @@ Use the entire OpenAI URL including the deployment name and API version
 
 ## Changelog
 
+- **Version 1.0.0.4:**
+  - UI changes, removed unused screens
+  - Only list interactions from today, clear now resets the gallery
+  - Canvas app is now version controlled, check the `canvas` branch
 - **Version 1.0.0.3:**
   - Fixing the missing/blank app issue. 
 - **Version 1.0.0.2:**
