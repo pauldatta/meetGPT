@@ -1,0 +1,83 @@
+{
+  "19040fda-2fe4-42d2-a0e1-c5db86bd112a": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Office 365 Users",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1626/1.0.1626.3238/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "ffb158d4-da8e-4d64-92e7-5aabee76c5c7"
+    ],
+    "id": "19040fda-2fe4-42d2-a0e1-c5db86bd112a"
+  },
+  "eacb60bf-bdb5-4b2a-be9f-4fd74606a6f6": {
+    "connectionRef": {
+      "apiTier": "Premium",
+      "bypassConsent": true,
+      "displayName": "Microsoft Dataverse",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1628/1.0.1628.3245/commondataserviceforapps/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_commondataserviceforapps",
+      "parameterHints": {},
+      "parameterHintsV2": {}
+    },
+    "datasets": {},
+    "dataSources": [],
+    "dependencies": {},
+    "dependents": [
+      "ffb158d4-da8e-4d64-92e7-5aabee76c5c7"
+    ],
+    "id": "eacb60bf-bdb5-4b2a-be9f-4fd74606a6f6"
+  },
+  "ffb158d4-da8e-4d64-92e7-5aabee76c5c7": {
+    "connectionRef": {
+      "apiTier": "Standard",
+      "displayName": "Logic flows",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1615/1.0.1615.3163/logicflows/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
+      "parameterHints": {
+        "19040fda-2fe4-42d2-a0e1-c5db86bd112a": {
+          "value": "shared_office365users"
+        },
+        "eacb60bf-bdb5-4b2a-be9f-4fd74606a6f6": {
+          "value": "shared_commondataserviceforapps"
+        },
+        "workflowEntityId": {
+          "value": "2fda0893-bfe4-ed11-a7c7-002248044d4e"
+        },
+        "workflowName": {
+          "value": "b6f8595c-2b26-0589-e7d0-fa4628a80005"
+        }
+      },
+      "parameterHintsV2": {
+        "shared_commondataserviceforapps": {
+          "value": "eacb60bf-bdb5-4b2a-be9f-4fd74606a6f6"
+        },
+        "shared_office365users": {
+          "value": "19040fda-2fe4-42d2-a0e1-c5db86bd112a"
+        },
+        "workflowEntityId": {
+          "value": "2fda0893-bfe4-ed11-a7c7-002248044d4e"
+        },
+        "workflowName": {
+          "value": "b6f8595c-2b26-0589-e7d0-fa4628a80005"
+        }
+      }
+    },
+    "datasets": {},
+    "dataSources": [
+      "mgpt_getResponse"
+    ],
+    "dependencies": {
+      "shared_commondataserviceforapps": "eacb60bf-bdb5-4b2a-be9f-4fd74606a6f6",
+      "shared_office365users": "19040fda-2fe4-42d2-a0e1-c5db86bd112a"
+    },
+    "dependents": [],
+    "id": "ffb158d4-da8e-4d64-92e7-5aabee76c5c7"
+  }
+}

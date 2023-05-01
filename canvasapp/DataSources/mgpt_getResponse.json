@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "91257be3-cd3f-4dd3-80c8-4ab1ee0be750",
+    "Name": "mgpt_getResponse",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "2fda0893-bfe4-ed11-a7c7-002248044d4e"
+  }
+]

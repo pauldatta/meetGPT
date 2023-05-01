@@ -1,0 +1,101 @@
+[
+  {
+    "DisplayName": "mgpt_reponses (Views)",
+    "Name": "_cr833_mgpt_reponse_views",
+    "RelatedEntityName": "mgpt_reponses",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "6d95e92b-a1fe-4997-9508-e306b259ab76": "mgpt_reponse Advanced Find View",
+      "900a4f6b-1c2b-4c31-947d-61faa8fcf83d": "mgpt_reponse Lookup View",
+      "99f56876-a5ff-43a4-ad80-431ce7c44d1f": "mgpt_reponse Associated View",
+      "9e45e9bf-ec1f-456f-8b29-0e9cd62bfa75": "Inactive mgpt_reponses",
+      "b14b6ac0-e8d0-4624-a0ca-b438fb73969a": "Active mgpt_reponses"
+    }
+  },
+  {
+    "DisplayName": "Status (mgpt_reponses)",
+    "Name": "cr833_mgpt_reponse_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "mgpt_reponses"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "mgpt_reponses",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (mgpt_reponses)",
+    "Name": "cr833_mgpt_reponse_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "mgpt_reponses"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "mgpt_reponses",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr833_mgpt_reponses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr833_mgpt_reponse",
+    "MaxGetRowsCount": 500,
+    "Name": "mgpt_reponses",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr833_mgpt_reponse_AsyncOperations": "System Jobs",
+      "cr833_mgpt_reponse_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr833_mgpt_reponse_connections1": "Connections (cr833_mgpt_reponse_connections1)",
+      "cr833_mgpt_reponse_connections2": "Connections (cr833_mgpt_reponse_connections2)",
+      "cr833_mgpt_reponse_DuplicateBaseRecord": "Duplicate Records (cr833_mgpt_reponse_DuplicateBaseRecord)",
+      "cr833_mgpt_reponse_DuplicateMatchingRecord": "Duplicate Records (cr833_mgpt_reponse_DuplicateMatchingRecord)",
+      "cr833_mgpt_reponse_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr833_mgpt_reponse_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr833_mgpt_reponse_ProcessSession": "Process Sessions",
+      "cr833_mgpt_reponse_SyncErrors": "Sync Errors",
+      "cr833_mgpt_reponseid": "mgpt_reponse",
+      "cr833_name": "User",
+      "cr833_prompt": "Prompt",
+      "cr833_response": "Response",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "mgpt_reponses",
+    "Type": "NativeCDSDataSourceInfo"
+  }
+]
