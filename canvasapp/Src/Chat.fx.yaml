@@ -187,6 +187,19 @@
                             Order: =1
                             ZIndex: =5
 
+                    "Progress1 As 'Progress Bar'":
+                        AlignInContainer: =AlignInContainer.Stretch
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =45
+                        Indeterminate: =true
+                        LayoutMinHeight: =45
+                        LayoutMinWidth: =Parent.Width
+                        Shape: ='PowerApps.CoreControls.Progress.Shape'.Square
+                        Width: =450
+                        X: =0
+                        Y: =0
+                        ZIndex: =4
+
         FooterContainer1 As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =0
@@ -242,18 +255,6 @@
                     Tooltip: ="Prompt Token Count"
                     ZIndex: =1
 
-                Spinner1 As Spinner:
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =30
-                    LayoutMinHeight: =200
-                    LayoutMinWidth: =200
-                    SpinnerSize: ='PowerApps.CoreControls.Spinner.SpinnerSize'.Tiny
-                    Visible: =false
-                    Width: =30
-                    X: =0
-                    Y: =0
-                    ZIndex: =2
-
                 ButtonCanvas1Send As Button:
                     DisplayMode: =DisplayMode.Edit
                     Height: =32
@@ -295,7 +296,7 @@
                         
                         // Show Spinner
                         ButtonCanvas1Send.Visible = false;
-                        Spinner1.Visible = true;
+                        Progress1.Visible = true;
                         
                         // Call flow
                         Set(GPTResponse, mgpt_getResponse.Run("Null",varGPTInstructions, varPrompt, varGPTMaxTokens, varGPTTemperature, varGPTTopP, varGPTStop));
@@ -305,7 +306,7 @@
                         
                         // Hide Spinner
                         ButtonCanvas1Send.Visible = true;
-                        Spinner1.Visible = false;
+                        Progress1.Visible = false;
                         
                         // Refresh data
                         Refresh(mgpt_reponses);

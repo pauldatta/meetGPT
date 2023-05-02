@@ -1,6 +1,6 @@
 App As appinfo:
     BackEnabled: =false
-    OnStart: |
+    OnStart: |-
         =ClearCollect(
             colTabs,
             {
@@ -43,6 +43,7 @@ App As appinfo:
         );
         // Clear
         TextInputPrompt.Clear;
+        Progress1.Visible = false;
 
     Host As hostControl.DefaultHostControlVariant:
         OnCancel: =false
