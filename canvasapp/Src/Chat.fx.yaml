@@ -182,10 +182,10 @@
                             =[{name: "Creative", t: 0.85}]
                         DisplayMode: =DisplayMode.Edit
                         Height: =45
-                        Items: |-
-                            =[{name: "Creative", t: 0.8}, {name: "Balanced", t: 0.9}, {name: "Serious", t: 1}]
+                        Items: =colTemperature
                         LayoutMinHeight: =45
                         LayoutMinWidth: =100
+                        OnSelect: =Set(varGPTTemperature, Self.Selected.t)
                         RenderSize: ='PowerApps.CoreControls.TabList.RenderSize'.Small
                         Width: =Container4.Width - 40
                         X: =0
@@ -213,6 +213,15 @@
                         X: =0
                         Y: =0
                         ZIndex: =4
+
+                    LabelTemperature As label:
+                        BorderColor: =RGBA(89, 0, 0, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Size: =13
+                        Text: |-
+                            ="Temp: " & varGPTTemperature
+                        ZIndex: =5
 
         FooterContainer1 As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer

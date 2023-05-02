@@ -20,6 +20,7 @@
     "LabelGPTParams": 19,
     "LabelPrompt_1": 16,
     "LabelResponse_1": 17,
+    "LabelTemperature": 29,
     "LabelTokenCount": 26,
     "LabelWelcome": 8,
     "MainSectionContainer": 10,
@@ -32,7 +33,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "05/02/2023 02:56:18",
+  "HeaderLastSavedDateTimeUTC": "05/02/2023 03:08:50",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "19040fda-2fe4-42d2-a0e1-c5db86bd112a": "\"/providers/microsoft.powerapps/apis/shared_office365users/connections/shared-office365user-ba9e5bb7-2b54-42dd-88ad-e415a4f7d3bd\"",
@@ -46,6 +47,7 @@
   "OrderComponentTemplate": {},
   "OrderDataSource": {
     "colTabs": 6,
+    "colTemperature": 7,
     "CustomGallerySample": 4,
     "mgpt_getResponse": 0,
     "mgpt_reponses": 5,
@@ -88,6 +90,7 @@
     "LabelGPTParams": {},
     "LabelPrompt_1": {},
     "LabelResponse_1": {},
+    "LabelTemperature": {},
     "LabelTokenCount": {},
     "LabelWelcome": {},
     "MainSectionContainer": {},
@@ -159,14 +162,14 @@
   },
   "PublishOrderIndices": {
     "App": 0,
-    "ButtonCanvas1Send": 22,
-    "ButtonCanvas2Clear": 23,
+    "ButtonCanvas1Send": 23,
+    "ButtonCanvas2Clear": 24,
     "Chat": 0,
     "Container1_1": 6,
     "Container2": 7,
     "Container4": 13,
-    "Container7": 20,
-    "FooterContainer1": 18,
+    "Container7": 21,
+    "FooterContainer1": 19,
     "GalleryChat": 8,
     "galleryTemplate5_1": 9,
     "HeaderContainer": 1,
@@ -176,7 +179,8 @@
     "LabelGPTParams": 14,
     "LabelPrompt_1": 11,
     "LabelResponse_1": 12,
-    "LabelTokenCount": 21,
+    "LabelTemperature": 18,
+    "LabelTokenCount": 22,
     "LabelWelcome": 3,
     "MainSectionContainer": 5,
     "name1_1": 17,
@@ -184,7 +188,7 @@
     "ScreenContainer": 0,
     "Seperator_1": 10,
     "TabListTemperature": 16,
-    "TextInputPrompt": 19
+    "TextInputPrompt": 20
   },
   "ResourcesJsonIndices": {
     "Image-SampleImage": 0

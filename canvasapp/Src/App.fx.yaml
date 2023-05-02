@@ -1,11 +1,26 @@
 App As appinfo:
     BackEnabled: =false
-    OnStart: |-
+    OnStart: |
         =ClearCollect(
             colTabs,
             {
                 Name: "Chat",
                 Screen: Chat
+            }
+        );
+        ClearCollect(
+            colTemperature,
+            {
+                name: "Creative",
+                t: 0.8
+            },
+            {
+                name: "Balanced",
+                t: 0.9
+            },
+            {
+                name: "Serious",
+                t: 1
             }
         );
         Set(
@@ -23,7 +38,7 @@ App As appinfo:
         );
         Set(
             varGPTTemperature,
-            0.8
+            LookUp(colTemperature, name = "Creative").t
         );
         Set(
             varGPTFrequencyPenalty,
