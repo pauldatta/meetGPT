@@ -124,7 +124,6 @@
     "UserLocale": "en-US"
   },
   "ScreenOrder": [
-    "Chat",
-    "History"
+    "Chat"
   ]
 }

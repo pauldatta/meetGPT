@@ -1,7 +1,14 @@
 App As appinfo:
     BackEnabled: =false
     OnStart: |
-        =Set(
+        =ClearCollect(
+            colTabs,
+            {
+                Name: "Chat",
+                Screen: Chat
+            }
+        );
+        Set(
             varTablistDefault,
             ["Chat"]
         );

@@ -14,19 +14,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Chat.Container1.Container2.GalleryChat.AccessibleLabel"
+                  "fullyQualifiedName": "Chat.ScreenContainer.MainSectionContainer.Container1_1.Container2.GalleryChat.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Chat.Container1.Container2.GalleryChat.AccessibleLabel",
+                  "fullyQualifiedName": "Chat.ScreenContainer.MainSectionContainer.Container1_1.Container2.GalleryChat.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Chat",
-                "type": "Chat.Container1.Container2.GalleryChat"
+                "type": "Chat.ScreenContainer.MainSectionContainer.Container1_1.Container2.GalleryChat"
               }
             }
           ],
@@ -44,19 +44,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Chat.Container1.Container2.GalleryChat.TabIndex"
+                  "fullyQualifiedName": "Chat.ScreenContainer.MainSectionContainer.Container1_1.Container2.GalleryChat.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Chat.Container1.Container2.GalleryChat.TabIndex",
+                  "fullyQualifiedName": "Chat.ScreenContainer.MainSectionContainer.Container1_1.Container2.GalleryChat.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
                 "module": "Chat",
-                "type": "Chat.Container1.Container2.GalleryChat"
+                "type": "Chat.ScreenContainer.MainSectionContainer.Container1_1.Container2.GalleryChat"
               }
             }
           ],
@@ -74,19 +74,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Chat.Container1.Container2.Container6.TextInputPrompt.AccessibleLabel"
+                  "fullyQualifiedName": "Chat.ScreenContainer.FooterContainer1.Container7.ButtonCanvas2Clear.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Chat.Container1.Container2.Container6.TextInputPrompt.AccessibleLabel",
+                  "fullyQualifiedName": "Chat.ScreenContainer.FooterContainer1.Container7.ButtonCanvas2Clear.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Chat",
-                "type": "Chat.Container1.Container2.Container6.TextInputPrompt"
+                "type": "Chat.ScreenContainer.FooterContainer1.Container7.ButtonCanvas2Clear"
               }
             }
           ],
@@ -104,19 +104,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Chat.Container1.Container2.Container6.Container7.ButtonCanvas1Send.AccessibleLabel"
+                  "fullyQualifiedName": "Chat.ScreenContainer.FooterContainer1.TextInputPrompt.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Chat.Container1.Container2.Container6.Container7.ButtonCanvas1Send.AccessibleLabel",
+                  "fullyQualifiedName": "Chat.ScreenContainer.FooterContainer1.TextInputPrompt.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Chat",
-                "type": "Chat.Container1.Container2.Container6.Container7.ButtonCanvas1Send"
+                "type": "Chat.ScreenContainer.FooterContainer1.TextInputPrompt"
               }
             }
           ],
@@ -134,19 +134,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Chat.Container1.Container2.Container6.Container7.ButtonCanvas2Clear.AccessibleLabel"
+                  "fullyQualifiedName": "Chat.ScreenContainer.FooterContainer1.Container7.ButtonCanvas1Send.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Chat.Container1.Container2.Container6.Container7.ButtonCanvas2Clear.AccessibleLabel",
+                  "fullyQualifiedName": "Chat.ScreenContainer.FooterContainer1.Container7.ButtonCanvas1Send.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Chat",
-                "type": "Chat.Container1.Container2.Container6.Container7.ButtonCanvas2Clear"
+                "type": "Chat.ScreenContainer.FooterContainer1.Container7.ButtonCanvas1Send"
               }
             }
           ],
@@ -158,6 +158,36 @@
           },
           "ruleId": "acc-AccessibleLabelNeeded",
           "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "App.varTablistDefault"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.varTablistDefault",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "varTablistDefault",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 2
         },
         {
           "locations": [
