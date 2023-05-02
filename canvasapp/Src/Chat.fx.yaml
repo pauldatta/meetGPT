@@ -89,7 +89,7 @@
                         BorderColor: =RGBA(89, 0, 0, 1)
                         Default: =Last(mgpt_reponses)
                         DelayItemLoading: =true
-                        Items: =mgpt_reponses
+                        Items: =Filter('mgpt_reponses', 'Created On' >= DateAdd(Now(), -1, TimeUnit.Hours))
                         Layout: =Layout.Vertical
                         LayoutMinHeight: =287
                         LayoutMinWidth: =320
