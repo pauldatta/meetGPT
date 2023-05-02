@@ -1,0 +1,46 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |
+        =Set(
+            varTablistDefault,
+            ["Chat"]
+        );
+        // Open AI
+        Set(
+            varGPTInstructions,
+            "You are an intelligent enterprise chat bot that business users are going to communicate with.Instructions - If you're unsure of an answer, you can say I don't know or I'm not sure"
+        );
+        Set(
+            varGPTMaxTokens,
+            1000
+        );
+        Set(
+            varGPTTemperature,
+            0.8
+        );
+        Set(
+            varGPTFrequencyPenalty,
+            0
+        );
+        Set(
+            varGPTPresencePenalty,
+            0
+        );
+        Set(
+            varGPTTopP,
+            0.9
+        );
+        Set(
+            varGPTStop,
+            "null"
+        );
+        // Clear
+        TextInputPrompt.Clear;
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+

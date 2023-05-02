@@ -1,0 +1,298 @@
+Chat As screen:
+    Fill: =RGBA(234, 234, 234, 1)
+    LoadingSpinnerColor: =RGBA(164, 38, 44, 1)
+
+    "TabList_Chat As 'Tab list'.pcfdataset":
+        DefaultSelectedItems: =varTablistDefault
+        DisplayMode: =DisplayMode.Edit
+        Height: =45
+        Items: |-
+            =[
+              {Name:"Chat",Screen:Chat}, 
+              {Name:"History",Screen:History}
+            ]
+        OnSelect: |-
+            =Set(varTablistDefault, [Self.Selected.Name]);
+            Navigate(Self.Selected.Screen);
+        RenderSize: ='PowerApps.CoreControls.TabList.RenderSize'.Large
+        Width: =280
+        X: =27
+        Y: =40
+        ZIndex: =1
+
+        Name2 As pcfDataField.textualColumn:
+            FieldDisplayName: ="Name"
+            FieldName: ="Name"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =1
+
+    Container1 As groupContainer.horizontalAutoLayoutContainer:
+        BorderColor: =RGBA(204, 231, 246, 1)
+        BorderThickness: =1
+        Fill: =RGBA(251, 251, 251, 1)
+        Height: =634
+        LayoutMode: =LayoutMode.Auto
+        Width: =1311
+        X: =27
+        Y: =85
+        ZIndex: =2
+
+        Container2 As groupContainer.verticalAutoLayoutContainer:
+            FillPortions: =0
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =400
+            LayoutMode: =LayoutMode.Auto
+            Width: =1100
+            ZIndex: =1
+
+            "GalleryChat As gallery.'BrowseLayout_Flexible_SocialFeed_ver4.0'":
+                BorderColor: =RGBA(89, 0, 0, 1)
+                Default: =Last(mgpt_reponses)
+                DelayItemLoading: =true
+                Items: =mgpt_reponses
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =287
+                LayoutMinWidth: =320
+                LoadingSpinner: =LoadingSpinner.Data
+                ShowNavigation: =true
+                TemplatePadding: =4
+                TemplateSize: =Min(870, Self.Height - 60)
+                ZIndex: =1
+
+                HtmlText3 As htmlViewer:
+                    AutoHeight: =true
+                    HtmlText: |
+                        ="<div style=""margin: 12px 10px 8px 10px; width: "&(GalleryChat.Width-50)&"px; height: "&(LabelPrompt.Height + LabelResponse.Height + 35)&"px; background-color: white; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); border-radius:5px""></div>"
+                    OnSelect: =Select(Parent)
+                    Width: =1070
+                    Y: =15
+                    ZIndex: =1
+
+                LabelResponse As label:
+                    AutoHeight: =true
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =DisplayMode.View
+                    Height: =Self.Size * 1.8
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    Text: =ThisItem.Response
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =GalleryChat.Width - 60
+                    X: =30
+                    Y: |
+                        =LabelPrompt.Y + 50
+                    ZIndex: =2
+
+                LabelPrompt As label:
+                    AutoHeight: =true
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =DisplayMode.View
+                    Height: |
+                        =Self.Size * 1.8
+                    OnSelect: =Select(Parent)
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =ThisItem.Prompt
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =GalleryChat.Width - 60
+                    X: =30
+                    Y: =41
+                    ZIndex: =3
+
+            Container6 As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                Height: =100
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =2
+
+                TextInputPrompt As text:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    BorderColor: =RGBA(89, 0, 0, 1)
+                    BorderThickness: =2
+                    Clear: =true
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =""
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    EnableSpellCheck: =true
+                    FillPortions: =1
+                    FocusedBorderThickness: =4
+                    Height: =80
+                    HintText: ="Chat with GPT"
+                    HoverBorderColor: =RGBA(89, 0, 0, 1)
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =RGBA(222, 179, 184, 1)
+                    LayoutMinWidth: =1000
+                    MaxLength: =2000
+                    Mode: =TextMode.MultiLine
+                    OnChange: |
+                        =Set(varPrompt, Self.Text); 
+                    OnSelect: =
+                    Size: =13
+                    Tooltip: ="Chat with GPT"
+                    ZIndex: =1
+
+                Container7 As groupContainer.verticalAutoLayoutContainer:
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =100
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =4
+
+                    LabelTokenCount As label:
+                        AlignInContainer: =AlignInContainer.Stretch
+                        BorderColor: =RGBA(89, 0, 0, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FillPortions: =1
+                        LayoutMinWidth: =30
+                        Live: =Live.Assertive
+                        Size: =13
+                        Text: =Concatenate(Len(TextInputPrompt.Text),"/2000")
+                        Tooltip: ="Prompt Token Count"
+                        ZIndex: =1
+
+                    Spinner1 As Spinner:
+                        AlignInContainer: =AlignInContainer.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =200
+                        SpinnerSize: ='PowerApps.CoreControls.Spinner.SpinnerSize'.Tiny
+                        Visible: =false
+                        Width: =30
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                    ButtonCanvas1Send As Button:
+                        AlignInContainer: =AlignInContainer.End
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =30
+                        OnSelect: |-
+                            =// Open AI
+                            Set(
+                                varGPTInstructions,
+                                "You are an intelligent enterprise chat bot that business users are going to communicate with.Instructions - If you're unsure of an answer, you can say I don't know or I'm not sure"
+                            );
+                            Set(
+                                varGPTMaxTokens,
+                                1000
+                            );
+                            Set(
+                                varGPTTemperature,
+                                TabListTemperature.Selected.t
+                            );
+                            Set(
+                                varGPTFrequencyPenalty,
+                                0
+                            );
+                            Set(
+                                varGPTPresencePenalty,
+                                0
+                            );
+                            Set(
+                                varGPTTopP,
+                                0.9
+                            );
+                            Set(
+                                varGPTStop,
+                                "null"
+                            );
+                            
+                            // Set Prompt
+                            Set(varPrompt, TextInputPrompt.Text);
+                            
+                            // Show Spinner
+                            ButtonCanvas1Send.Visible = false;
+                            Spinner1.Visible = true;
+                            
+                            // Call flow
+                            Set(GPTResponse, mgpt_getResponse.Run("Null",varGPTInstructions, varPrompt, varGPTMaxTokens, varGPTTemperature, varGPTTopP, varGPTStop));
+                            
+                            // Clear text
+                            Select(ButtonCanvas2Clear);
+                            
+                            // Hide Spinner
+                            ButtonCanvas1Send.Visible = true;
+                            Spinner1.Visible = false;
+                            
+                            // Refresh data
+                            Refresh(mgpt_reponses);
+                        Text: ="Send"
+                        Visible: =true
+                        Width: =96
+                        X: =0
+                        Y: =0
+                        ZIndex: =3
+
+                    ButtonCanvas2Clear As Button:
+                        AlignInContainer: =AlignInContainer.End
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =30
+                        OnChange: =false
+                        OnSelect: =Reset(TextInputPrompt);
+                        Text: ="Clear"
+                        Width: =96
+                        X: =0
+                        Y: =0
+                        ZIndex: =4
+
+        Container4 As groupContainer.verticalAutoLayoutContainer:
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Label1 As label:
+                Align: =Align.Center
+                BorderColor: =RGBA(89, 0, 0, 1)
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisplayMode: =DisplayMode.View
+                Size: =13
+                Text: ="GPT Parameters"
+                Width: =Container4.Width - 40
+                ZIndex: =1
+
+            "TabListTemperature As 'Tab list'.pcfdataset":
+                DefaultSelectedItems: |-
+                    =[{name: "Creative", t: 0.85}]
+                DisplayMode: =DisplayMode.Edit
+                Height: =45
+                Items: |-
+                    =[{name: "Creative", t: 0.8}, {name: "Balanced", t: 0.9}, {name: "Serious", t: 1}]
+                LayoutMinHeight: =45
+                LayoutMinWidth: =100
+                RenderSize: ='PowerApps.CoreControls.TabList.RenderSize'.Small
+                Width: =Container4.Width - 40
+                X: =0
+                Y: =0
+                ZIndex: =2
+
+                name1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="name"
+                    FieldName: ="name"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =1
+                    ZIndex: =5
+
