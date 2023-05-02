@@ -8,7 +8,7 @@ Welcome to Meet GPT! This allows business users to experience Azure Open AI Mode
 - Stores user data in Dataverse tables for easy analysis
 - More features to come!
 
-![Screenshot of Meet GPT app](images/MeetGPT_1_0_0_4.png)
+![Screenshot of Meet GPT app](images/MeetGPT_1_0_0_5.png)
 
 ## Pre-requisites
 
@@ -37,6 +37,9 @@ Use the entire OpenAI URL including the deployment name and API version
 
 ## Changelog
 
+- **Version 1.0.0.5:**
+  - UI changes, improved layout and design
+  - Fixed GalleryChat message loading filters, clear and submit action datasource refresh
 - **Version 1.0.0.4:**
   - UI changes, removed unused screens
   - Only list interactions from today, clear now resets the gallery
@@ -51,18 +54,17 @@ Use the entire OpenAI URL including the deployment name and API version
 
 **Known Bugs:**
 
-- History tab is still under development.
 - Gallery view and UI design are being improved.
 - Message send/chat flow is being improved.
-
+- Has not been tested enough to be production ready.
 
 ## Roadmap
 
 - [Planned] Admin section to manage user access and token/rate limits
-- [Planned] Workflow for users to request more tokens
+- [Planned] Workflow for users to request more tokens with simple gamification
 - [Planned] Prompt analysis, for admin to monitor user activity and feedback
 - [Planned] Submit an idea section for business users to share AI use cases for their work
-
+- [Planned] Advanced mode for users to send custom prompts and export JSON etc like Azure Open AI Studio
 
 ## Contributing
 
