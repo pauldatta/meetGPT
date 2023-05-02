@@ -74,36 +74,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Chat.ScreenContainer.FooterContainer1.Container7.ButtonCanvas2Clear.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Chat.ScreenContainer.FooterContainer1.Container7.ButtonCanvas2Clear.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Chat",
-                "type": "Chat.ScreenContainer.FooterContainer1.Container7.ButtonCanvas2Clear"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 0
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "Chat.ScreenContainer.FooterContainer1.TextInputPrompt.AccessibleLabel"
                 }
               ],
@@ -147,6 +117,36 @@
                 "member": "AccessibleLabel",
                 "module": "Chat",
                 "type": "Chat.ScreenContainer.FooterContainer1.Container7.ButtonCanvas1Send"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Chat.ScreenContainer.FooterContainer1.Container7.ButtonCanvas2Clear.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Chat.ScreenContainer.FooterContainer1.Container7.ButtonCanvas2Clear.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Chat",
+                "type": "Chat.ScreenContainer.FooterContainer1.Container7.ButtonCanvas2Clear"
               }
             }
           ],
