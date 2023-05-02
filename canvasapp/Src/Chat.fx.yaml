@@ -1,5 +1,6 @@
 "Chat As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
-    Fill: =RGBA(234, 234, 234, 1)
+    Fill: |
+        =RGBA(234, 234, 234, 1)
     LoadingSpinnerColor: =RGBA(164, 38, 44, 1)
 
     ScreenContainer As groupContainer.verticalAutoLayoutContainer:
@@ -98,31 +99,21 @@
                         TemplateSize: =Min(870, Self.Height - 60)
                         ZIndex: =1
 
-                        HtmlText3_1 As htmlViewer:
-                            AutoHeight: =true
-                            HtmlText: |
-                                ="<div style=""margin: 12px 10px 8px 10px; width: "&(GalleryChat.Width-50)&"px; height: "&(LabelPrompt_1.Height + LabelResponse_1.Height + 35)&"px; background-color: white; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); border-radius:5px""></div>"
-                            OnSelect: =Select(Parent)
-                            Width: =632
-                            Y: =15
-                            ZIndex: =1
-
                         LabelResponse_1 As label:
                             AutoHeight: =true
                             Color: =RGBA(0, 0, 0, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisplayMode: =DisplayMode.View
+                            Fill: =RGBA(251, 251, 251, 1)
                             Height: =Self.Size * 1.8
                             OnSelect: =Select(Parent)
-                            PaddingBottom: =0
+                            PaddingBottom: =10
                             PaddingLeft: =0
                             PaddingRight: =0
                             Text: =ThisItem.Response
-                            VerticalAlign: =VerticalAlign.Top
                             Width: =GalleryChat.Width - 60
                             X: =30
-                            Y: |
-                                =LabelPrompt_1.Y + 50
+                            Y: =54
                             ZIndex: =2
 
                         LabelPrompt_1 As label:
@@ -130,6 +121,7 @@
                             Color: =RGBA(0, 0, 0, 1)
                             DisabledColor: =RGBA(166, 166, 166, 1)
                             DisplayMode: =DisplayMode.View
+                            Fill: =RGBA(234, 234, 234, 1)
                             Height: |
                                 =Self.Size * 1.8
                             OnSelect: =Select(Parent)
@@ -140,8 +132,18 @@
                             VerticalAlign: =VerticalAlign.Top
                             Width: =GalleryChat.Width - 60
                             X: =30
-                            Y: =41
+                            Y: =11
                             ZIndex: =3
+
+                        Seperator_1 As rectangle:
+                            BorderColor: =RGBA(153, 207, 236, 1)
+                            Fill: =RGBA(204, 231, 246, 1)
+                            Height: =3
+                            OnSelect: =Select(Parent)
+                            Width: =1107
+                            X: =30
+                            Y: =
+                            ZIndex: =4
 
                 Container4 As groupContainer.verticalAutoLayoutContainer:
                     AlignInContainer: =AlignInContainer.SetByContainer
@@ -195,6 +197,7 @@
                         LayoutMinHeight: =45
                         LayoutMinWidth: =Parent.Width
                         Shape: ='PowerApps.CoreControls.Progress.Shape'.Square
+                        Visible: =false
                         Width: =450
                         X: =0
                         Y: =0
@@ -294,7 +297,7 @@
                         // Set Prompt
                         Set(varPrompt, TextInputPrompt.Text);
                         
-                        // Show Spinner
+                        // Show Progressbar
                         ButtonCanvas1Send.Visible = false;
                         Progress1.Visible = true;
                         
@@ -304,7 +307,7 @@
                         // Clear text
                         Select(ButtonCanvas2Clear);
                         
-                        // Hide Spinner
+                        // Hide Progressbar
                         ButtonCanvas1Send.Visible = true;
                         Progress1.Visible = false;
                         
@@ -323,7 +326,10 @@
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
                     OnChange: =false
-                    OnSelect: =Reset(TextInputPrompt);
+                    OnSelect: |-
+                        =Reset(TextInputPrompt);
+                        Set(clearTime, Now());
+                        Filter('mgpt_reponses', 'Created On' >= clearTime)
                     Text: ="Clear"
                     Width: =96
                     X: =0

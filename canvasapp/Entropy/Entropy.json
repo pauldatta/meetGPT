@@ -15,7 +15,6 @@
     "galleryTemplate5_1": 46,
     "HeaderContainer": 37,
     "Host": 3,
-    "HtmlText3_1": 47,
     "ImageUser": 41,
     "LabelAppName": 40,
     "LabelGPTParams": 58,
@@ -27,12 +26,13 @@
     "name1_1": 60,
     "Progress1": 82,
     "ScreenContainer": 36,
+    "Seperator_1": 83,
     "TabListTemperature": 59,
     "TextInputPrompt": 68
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "05/02/2023 01:40:36",
+  "HeaderLastSavedDateTimeUTC": "05/02/2023 02:18:13",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "19040fda-2fe4-42d2-a0e1-c5db86bd112a": "\"/providers/microsoft.powerapps/apis/shared_office365users/connections/shared-office365user-ba9e5bb7-2b54-42dd-88ad-e415a4f7d3bd\"",
@@ -63,10 +63,10 @@
   "OrderXMLTemplate": {
     "gallery": 3,
     "groupContainer": 0,
-    "htmlViewer": 4,
     "image": 2,
     "label": 1,
     "pcfDataField": 5,
+    "rectangle": 4,
     "text": 6
   },
   "OverridablePropertiesEntry": {
@@ -83,7 +83,6 @@
     "galleryTemplate5_1": {},
     "HeaderContainer": {},
     "Host": {},
-    "HtmlText3_1": {},
     "ImageUser": {},
     "LabelAppName": {},
     "LabelGPTParams": {},
@@ -95,6 +94,7 @@
     "name1_1": {},
     "Progress1": {},
     "ScreenContainer": {},
+    "Seperator_1": {},
     "TabListTemperature": {},
     "TextInputPrompt": {}
   },
@@ -171,7 +171,6 @@
     "galleryTemplate5_1": 9,
     "HeaderContainer": 1,
     "Host": 0,
-    "HtmlText3_1": 10,
     "ImageUser": 4,
     "LabelAppName": 2,
     "LabelGPTParams": 14,
@@ -183,6 +182,7 @@
     "name1_1": 16,
     "Progress1": 17,
     "ScreenContainer": 0,
+    "Seperator_1": 10,
     "TabListTemperature": 15,
     "TextInputPrompt": 19
   },
