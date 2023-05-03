@@ -149,13 +149,23 @@
                 Items: |-
                     =If(
                         IsBlankOrError(clearTime),
-                        Filter(
-                            mgpt_reponses,
-                            'Created On' >= Today(), 'User' = User().Email
+                        Sort(
+                            Filter(
+                                mgpt_reponses,
+                                'Created On' >= Today(),
+                                'User' = User().Email
+                            ),
+                            'Created On',
+                            SortOrder.Descending
                         ),
-                        Filter(
-                            mgpt_reponses,
-                            'Created On' >= clearTime, 'User' = User().Email
+                        Sort(
+                            Filter(
+                                mgpt_reponses,
+                                'Created On' >= clearTime,
+                                'User' = User().Email
+                            ),
+                            'Created On',
+                            SortOrder.Descending
                         )
                     )
                 Layout: =Layout.Vertical
@@ -195,7 +205,7 @@
                     PaddingLeft: =0
                     PaddingRight: =0
                     PaddingTop: =0
-                    Text: =ThisItem.Prompt
+                    Text: =ThisItem.User
                     VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.TemplateWidth - 100
                     X: =65
