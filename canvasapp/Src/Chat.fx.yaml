@@ -135,7 +135,7 @@
                     LayoutMinWidth: =Parent.Width
                     Shape: ='PowerApps.CoreControls.Progress.Shape'.Rounded
                     Thickness: ='PowerApps.CoreControls.Progress.Thickness'.Large
-                    Visible: =false
+                    Visible: =progressVisibility
                     Width: =100
                     X: =0
                     Y: =0
@@ -151,11 +151,11 @@
                         IsBlankOrError(clearTime),
                         Filter(
                             mgpt_reponses,
-                            'Created On' >= Today()
+                            'Created On' >= Today(), 'User' = User().Email
                         ),
                         Filter(
                             mgpt_reponses,
-                            'Created On' >= clearTime
+                            'Created On' >= clearTime, 'User' = User().Email
                         )
                     )
                 Layout: =Layout.Vertical
@@ -292,7 +292,7 @@
                     ZIndex: =1
 
                 ButtonCanvas1Send As Button:
-                    DisplayMode: =DisplayMode.Edit
+                    DisplayMode: =If(sendButtonDisabled, DisplayMode.Disabled, DisplayMode.Edit)
                     Height: =32
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
@@ -331,8 +331,9 @@
                         Set(varPrompt, TextInputPrompt.Text);
                         
                         // Show Progressbar
-                        ButtonCanvas1Send.Visible = false;
-                        Progress1.Visible = true;
+                        Set(progressVisibility, true);
+                        Set(sendButtonDisabled, true);
+                        Set(sendButtonText, "Sending..");
                         
                         // Call flow
                         Set(GPTResponse, mgpt_getResponse.Run("Null",varGPTInstructions, varPrompt, varGPTMaxTokens, varGPTTemperature, varGPTTopP, varGPTStop));
@@ -341,12 +342,13 @@
                         Select(ButtonCanvas2Clear);
                         
                         // Hide Progressbar
-                        ButtonCanvas1Send.Visible = true;
-                        Progress1.Visible = false;
+                        Set(progressVisibility, false);
+                        Set(sendButtonDisabled, false);
+                        Set(sendButtonText, "Send");
                         
                         // Refresh data
                         Refresh(mgpt_reponses);
-                    Text: ="Send"
+                    Text: =sendButtonText
                     Visible: =true
                     Width: =96
                     X: =0
@@ -359,10 +361,11 @@
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
                     OnChange: =false
-                    OnSelect: |-
+                    OnSelect: |+
                         =Reset(TextInputPrompt);
                         Set(clearTime, Now());
-                        Filter(mgpt_reponses, 'Created On' >= clearTime)
+                        //Filter(mgpt_reponses, 'Created On' >= clearTime)
+                        
                     Text: ="Clear"
                     Width: =96
                     X: =0

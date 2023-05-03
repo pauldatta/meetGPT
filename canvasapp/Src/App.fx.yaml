@@ -58,7 +58,9 @@ App As appinfo:
         );
         // Clear
         TextInputPrompt.Clear;
-        Progress1.Visible = false;
+        Set(progressVisibility, false);
+        Set(sendButtonDisabled, false);
+        Set(sendButtonText, "Send");
         //Set(clearTime, DateTime(2023, 05, 01,0,0,0));
         Set(clearTime, Today());
 
