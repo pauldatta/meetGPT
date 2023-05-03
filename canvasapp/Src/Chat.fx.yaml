@@ -374,7 +374,7 @@
                         // Refresh data
                         Refresh(mgpt_reponses);
                     Text: =sendButtonText
-                    Visible: =true
+                    Visible: =false
                     Width: =96
                     X: =0
                     Y: =0
@@ -390,8 +390,151 @@
                         =Reset(TextInputPrompt);
                         Set(clearTime, Now());
                     Text: ="Clear"
+                    Visible: =false
                     Width: =96
                     X: =0
                     Y: =0
                     ZIndex: =4
+
+                ContainerSaveButton As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =30
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    Width: =90
+                    X: =40
+                    Y: =40
+                    ZIndex: =6
+
+                    ButtonSaveIcon_2 As button:
+                        Align: =Align.Right
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(102, 182, 227, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =ContainerSaveButton.Height - Self.BorderThickness
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =ColorFade(Color.AliceBlue,-20%)
+                        OnSelect: |-
+                            =// Open AI
+                            Set(
+                                varGPTInstructions,
+                                "You are an intelligent enterprise chat bot that business users are going to communicate with.Instructions - If you're unsure of an answer, you can say I don't know or I'm not sure"
+                            );
+                            Set(
+                                varGPTMaxTokens,
+                                1000
+                            );
+                            Set(
+                                varGPTTemperature,
+                                TabListTemperature.Selected.t
+                            );
+                            Set(
+                                varGPTFrequencyPenalty,
+                                0
+                            );
+                            Set(
+                                varGPTPresencePenalty,
+                                0
+                            );
+                            Set(
+                                varGPTTopP,
+                                0.9
+                            );
+                            Set(
+                                varGPTStop,
+                                "null"
+                            );
+                            
+                            // Set Prompt
+                            Set(varPrompt, TextInputPrompt.Text);
+                            
+                            // Show Progressbar
+                            Set(progressVisibility, true);
+                            Set(sendButtonDisabled, true);
+                            Set(sendButtonText, "Sending..");
+                            
+                            // Call flow
+                            Set(GPTResponse, mgpt_getResponse.Run("Null",varGPTInstructions, varPrompt, varGPTMaxTokens, varGPTTemperature, varGPTTopP, varGPTStop));
+                            
+                            // Clear text
+                            Reset(TextInputPrompt);
+                            
+                            // Hide Progressbar
+                            Set(progressVisibility, false);
+                            Set(sendButtonDisabled, false);
+                            Set(sendButtonText, "Send");
+                            
+                            // Refresh data
+                            Refresh(mgpt_reponses);
+                        PaddingLeft: =0
+                        PaddingRight: =10
+                        Size: =10
+                        Text: ="Send"
+                        Width: =ContainerSaveButton.Width - Self.BorderThickness
+                        X: =2
+                        Y: =1
+                        ZIndex: =1
+
+                    Icon1_2 As icon.Send:
+                        BorderColor: =RGBA(89, 0, 0, 1)
+                        Color: =If(ButtonSaveIcon_2.Pressed, Color.Black, Color.White)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Fill: =Color.Transparent
+                        Height: =24
+                        Icon: =Icon.Send
+                        Width: =21
+                        X: =15
+                        Y: =2
+                        ZIndex: =2
+
+                ContainerClearButton As groupContainer.manualLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    FillPortions: =0
+                    Height: =28
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    PaddingTop: =20
+                    Width: =90
+                    X: =40
+                    Y: =40
+                    ZIndex: =7
+
+                    ButtonClearIcon As button:
+                        Align: =Align.Right
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Fill: =RGBA(219, 168, 171, 1)
+                        FontWeight: =FontWeight.Semibold
+                        Height: =ContainerClearButton.Height - Self.BorderThickness
+                        HoverColor: =RGBA(255, 255, 255, 1)
+                        HoverFill: =ColorFade(Color.AliceBlue,-20%)
+                        OnSelect: |
+                            =Reset(TextInputPrompt);
+                            Set(clearTime, Now());
+                        PaddingLeft: =0
+                        PaddingRight: =10
+                        Size: =10
+                        Text: ="Clear"
+                        Width: =ContainerClearButton.Width - Self.BorderThickness
+                        X: =2
+                        Y: =1
+                        ZIndex: =1
+
+                    Icon4 As icon.CancelBadge:
+                        BorderColor: =RGBA(89, 0, 0, 1)
+                        Color: =If(ButtonClearIcon.Pressed, Color.Black, Color.White)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Fill: =Color.Transparent
+                        Height: =23
+                        Icon: =Icon.CancelBadge
+                        Width: =17
+                        X: =14
+                        Y: =1
+                        ZIndex: =4
 
