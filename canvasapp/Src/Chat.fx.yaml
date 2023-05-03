@@ -65,7 +65,8 @@
                 BorderColor: =RGBA(204, 231, 246, 1)
                 BorderThickness: =1
                 Fill: =RGBA(251, 251, 251, 1)
-                Height: =634
+                FillPortions: =0
+                Height: =40
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutMinHeight: =100
                 LayoutMinWidth: =250
@@ -75,153 +76,177 @@
                 Y: =85
                 ZIndex: =2
 
-                Container2 As groupContainer.verticalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.SetByContainer
+                LabelGPTParams As label:
+                    Align: =Align.Center
+                    AlignInContainer: =AlignInContainer.Stretch
+                    BorderColor: =RGBA(89, 0, 0, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =DisplayMode.View
+                    FillPortions: =1
+                    FontWeight: =FontWeight.Semibold
+                    LayoutMinWidth: =20
+                    Size: =11
+                    Text: ="GPT Parameters"
+                    Width: =
+                    ZIndex: =1
+
+                "TabListTemperature As 'Tab list'.pcfdataset":
+                    DefaultSelectedItems: |-
+                        =[{name: "Creative", t: 0.85}]
+                    DisplayMode: =DisplayMode.Edit
                     FillPortions: =6
-                    LayoutDirection: =LayoutDirection.Vertical
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =400
-                    LayoutMode: =LayoutMode.Auto
-                    Width: =1100
+                    Height: =45
+                    Items: =colTemperature
+                    LayoutMinHeight: =45
+                    LayoutMinWidth: =100
+                    OnSelect: =Set(varGPTTemperature, Self.Selected.t)
+                    RenderSize: ='PowerApps.CoreControls.TabList.RenderSize'.Small
+                    Width: =
+                    X: =0
+                    Y: =0
                     ZIndex: =2
 
-                    "GalleryChat As gallery.'BrowseLayout_Flexible_SocialFeed_ver4.0'":
-                        BorderColor: =RGBA(89, 0, 0, 1)
-                        Default: =Last(mgpt_reponses)
-                        DelayItemLoading: =true
-                        Items: |-
-                            =If(
-                                IsBlankOrError(clearTime),
-                                Filter(
-                                    mgpt_reponses,
-                                    'Created On' >= Today()
-                                ),
-                                Filter(
-                                    mgpt_reponses,
-                                    'Created On' >= clearTime
-                                )
-                            )
-                        Layout: =Layout.Vertical
-                        LayoutMinHeight: =287
-                        LayoutMinWidth: =320
-                        LoadingSpinner: =LoadingSpinner.Data
-                        ShowNavigation: =true
-                        TemplatePadding: =4
-                        TemplateSize: =Min(870, Self.Height - 60)
-                        ZIndex: =1
+                    name1_1 As pcfDataField.textualColumn:
+                        FieldDisplayName: ="name"
+                        FieldName: ="name"
+                        FieldType: ="s"
+                        FieldVariantName: ="textualColumn"
+                        Order: =1
+                        ZIndex: =5
 
-                        LabelResponse_1 As label:
-                            AutoHeight: =true
-                            Color: =RGBA(0, 0, 0, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            DisplayMode: =DisplayMode.View
-                            Fill: =RGBA(251, 251, 251, 1)
-                            Height: =Self.Size * 1.8
-                            OnSelect: =Select(Parent)
-                            PaddingBottom: =10
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            Text: =ThisItem.Response
-                            Width: =GalleryChat.Width - 60
-                            X: =30
-                            Y: =54
-                            ZIndex: =2
-
-                        LabelPrompt_1 As label:
-                            AutoHeight: =true
-                            Color: =RGBA(0, 0, 0, 1)
-                            DisabledColor: =RGBA(166, 166, 166, 1)
-                            DisplayMode: =DisplayMode.View
-                            Fill: =RGBA(234, 234, 234, 1)
-                            Height: |
-                                =Self.Size * 1.8
-                            OnSelect: =Select(Parent)
-                            PaddingLeft: =0
-                            PaddingRight: =0
-                            PaddingTop: =0
-                            Text: =ThisItem.Prompt
-                            VerticalAlign: =VerticalAlign.Top
-                            Width: =GalleryChat.Width - 60
-                            X: =30
-                            Y: =11
-                            ZIndex: =3
-
-                        Seperator_1 As rectangle:
-                            BorderColor: =RGBA(153, 207, 236, 1)
-                            Fill: =RGBA(204, 231, 246, 1)
-                            Height: =3
-                            OnSelect: =Select(Parent)
-                            Width: =1107
-                            X: =30
-                            Y: =
-                            ZIndex: =4
-
-                Container4 As groupContainer.verticalAutoLayoutContainer:
-                    AlignInContainer: =AlignInContainer.SetByContainer
-                    LayoutDirection: =LayoutDirection.Vertical
-                    LayoutMinHeight: =100
-                    LayoutMinWidth: =200
-                    LayoutMode: =LayoutMode.Auto
+                LabelTemperature As label:
+                    BorderColor: =RGBA(89, 0, 0, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FillPortions: =2
+                    LayoutMinWidth: =20
+                    Size: =13
+                    Text: |-
+                        ="Temp: " & varGPTTemperature
                     ZIndex: =3
 
-                    LabelGPTParams As label:
-                        Align: =Align.Center
-                        AlignInContainer: =AlignInContainer.Stretch
-                        BorderColor: =RGBA(89, 0, 0, 1)
-                        Color: =RGBA(0, 0, 0, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        DisplayMode: =DisplayMode.View
-                        FontWeight: =FontWeight.Semibold
-                        Size: =11
-                        Text: ="GPT Parameters"
-                        Width: =Container4.Width - 40
-                        ZIndex: =1
+                "Progress1 As 'Progress Bar'":
+                    AlignInContainer: =AlignInContainer.Stretch
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =45
+                    Indeterminate: =true
+                    LayoutMinHeight: =45
+                    LayoutMinWidth: =Parent.Width
+                    Shape: ='PowerApps.CoreControls.Progress.Shape'.Rounded
+                    Thickness: ='PowerApps.CoreControls.Progress.Thickness'.Large
+                    Visible: =false
+                    Width: =100
+                    X: =0
+                    Y: =0
+                    ZIndex: =4
 
-                    "TabListTemperature As 'Tab list'.pcfdataset":
-                        DefaultSelectedItems: |-
-                            =[{name: "Creative", t: 0.85}]
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =45
-                        Items: =colTemperature
-                        LayoutMinHeight: =45
-                        LayoutMinWidth: =100
-                        OnSelect: =Set(varGPTTemperature, Self.Selected.t)
-                        RenderSize: ='PowerApps.CoreControls.TabList.RenderSize'.Small
-                        Width: =Container4.Width - 40
-                        X: =0
-                        Y: =0
-                        ZIndex: =2
+            "GalleryChat As gallery.'BrowseLayout_Flexible_SocialFeed_ver4.0'":
+                BorderColor: =RGBA(89, 0, 0, 1)
+                Default: =Last(mgpt_reponses)
+                DelayItemLoading: =true
+                Fill: =RGBA(255, 255, 255, 1)
+                Items: |-
+                    =If(
+                        IsBlankOrError(clearTime),
+                        Filter(
+                            mgpt_reponses,
+                            'Created On' >= Today()
+                        ),
+                        Filter(
+                            mgpt_reponses,
+                            'Created On' >= clearTime
+                        )
+                    )
+                Layout: =Layout.Vertical
+                LayoutMinHeight: =287
+                LayoutMinWidth: =320
+                LoadingSpinner: =LoadingSpinner.Data
+                ShowNavigation: =true
+                TemplatePadding: =4
+                TemplateSize: =Min(870, Self.Height - 60)
+                ZIndex: =4
 
-                        name1_1 As pcfDataField.textualColumn:
-                            FieldDisplayName: ="name"
-                            FieldName: ="name"
-                            FieldType: ="s"
-                            FieldVariantName: ="textualColumn"
-                            Order: =1
-                            ZIndex: =5
+                LabelResponse_1 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =DisplayMode.View
+                    Fill: =RGBA(251, 251, 251, 1)
+                    Height: =Self.Size * 1.8
+                    OnSelect: =Select(Parent)
+                    PaddingBottom: =10
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    Text: =ThisItem.Response
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.TemplateWidth - 90
+                    X: =65
+                    Y: =54
+                    ZIndex: =2
 
-                    "Progress1 As 'Progress Bar'":
-                        AlignInContainer: =AlignInContainer.Stretch
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =45
-                        Indeterminate: =true
-                        LayoutMinHeight: =45
-                        LayoutMinWidth: =Parent.Width
-                        Shape: ='PowerApps.CoreControls.Progress.Shape'.Square
-                        Visible: =false
-                        Width: =450
-                        X: =0
-                        Y: =0
-                        ZIndex: =4
+                HtmlTextPrompt As htmlViewer:
+                    AutoHeight: =true
+                    DisplayMode: =DisplayMode.View
+                    Height: =LabelPrompt_1.Height
+                    HtmlText: |
+                        ="<div style=""margin: 2px 2px 2px 2px; width: "&(Self.Width - 15)&"px; height: "&(LabelPrompt_1.Height)&"px; background-color: white; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); border-radius:2px""></div>"
+                    OnSelect: =Select(Parent)
+                    Width: =LabelPrompt_1.Width
+                    X: =54
+                    Y: =3
+                    ZIndex: =3
 
-                    LabelTemperature As label:
-                        BorderColor: =RGBA(89, 0, 0, 1)
-                        Color: =RGBA(0, 0, 0, 1)
-                        DisabledColor: =RGBA(166, 166, 166, 1)
-                        Size: =13
-                        Text: |-
-                            ="Temp: " & varGPTTemperature
-                        ZIndex: =5
+                LabelPrompt_1 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisplayMode: =DisplayMode.View
+                    Height: =28
+                    OnSelect: =Select(Parent)
+                    PaddingLeft: =10
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =ThisItem.Prompt
+                    VerticalAlign: =VerticalAlign.Top
+                    Width: =Parent.TemplateWidth - 100
+                    X: =65
+                    Y: =11
+                    ZIndex: =4
+
+                Seperator_1 As rectangle:
+                    BorderColor: =RGBA(153, 207, 236, 1)
+                    Fill: =RGBA(204, 231, 246, 1)
+                    Height: =3
+                    OnSelect: =Select(Parent)
+                    Width: =632
+                    Y: =
+                    ZIndex: =5
+
+                ImageUser1 As image:
+                    BorderColor: =RGBA(89, 0, 0, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =28
+                    Image: =User().Image
+                    OnSelect: =Select(Parent)
+                    Width: =38
+                    X: =16
+                    Y: =11
+                    ZIndex: =6
+
+                Icon3 As icon.Bookmark:
+                    BorderColor: =RGBA(89, 0, 0, 1)
+                    Color: =RGBA(102, 182, 227, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(244, 244, 244, 1)
+                    Height: =19
+                    Icon: =Icon.Bookmark
+                    OnSelect: =Select(Parent)
+                    Width: =24
+                    X: =23
+                    Y: =65
+                    ZIndex: =7
 
         FooterContainer1 As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
