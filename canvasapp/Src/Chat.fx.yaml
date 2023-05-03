@@ -185,18 +185,6 @@
                     Y: =54
                     ZIndex: =2
 
-                HtmlTextPrompt As htmlViewer:
-                    AutoHeight: =true
-                    DisplayMode: =DisplayMode.View
-                    Height: =LabelPrompt_1.Height
-                    HtmlText: |
-                        ="<div style=""margin: 2px 2px 2px 2px; width: "&(Self.Width - 15)&"px; height: "&(LabelPrompt_1.Height)&"px; background-color: white; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); border-radius:2px""></div>"
-                    OnSelect: =Select(Parent)
-                    Width: =LabelPrompt_1.Width
-                    X: =54
-                    Y: =3
-                    ZIndex: =3
-
                 LabelPrompt_1 As label:
                     AutoHeight: =true
                     Color: =RGBA(0, 0, 0, 1)
@@ -219,7 +207,7 @@
                     Fill: =RGBA(204, 231, 246, 1)
                     Height: =3
                     OnSelect: =Select(Parent)
-                    Width: =632
+                    Width: =Parent.TemplateWidth
                     Y: =
                     ZIndex: =5
 
