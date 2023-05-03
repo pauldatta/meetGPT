@@ -192,7 +192,7 @@
                     DisplayMode: =DisplayMode.View
                     Height: =28
                     OnSelect: =Select(Parent)
-                    PaddingLeft: =10
+                    PaddingLeft: =0
                     PaddingRight: =0
                     PaddingTop: =0
                     Text: =ThisItem.Prompt
