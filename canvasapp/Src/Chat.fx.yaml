@@ -123,7 +123,7 @@
                     LayoutMinWidth: =20
                     Size: =13
                     Text: |-
-                        ="Temp: " & varGPTTemperature
+                        ="Temp: " & varGPTTemperature & " ClearTime: " & clearTime
                     ZIndex: =3
 
                 "Progress1 As 'Progress Bar'":
@@ -246,6 +246,21 @@
                     Y: =65
                     ZIndex: =7
 
+                LabelCreatedOn As label:
+                    Align: =Align.Right
+                    BorderColor: =RGBA(89, 0, 0, 1)
+                    Color: =RGBA(0, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Lighter
+                    Height: =31
+                    OnSelect: =Select(Parent)
+                    Size: =10
+                    Text: =ThisItem.'Created On'
+                    Width: =188
+                    X: =1143
+                    Y: =339
+                    ZIndex: =8
+
         FooterContainer1 As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
             FillPortions: =0
@@ -349,7 +364,7 @@
                         Set(GPTResponse, mgpt_getResponse.Run("Null",varGPTInstructions, varPrompt, varGPTMaxTokens, varGPTTemperature, varGPTTopP, varGPTStop));
                         
                         // Clear text
-                        Select(ButtonCanvas2Clear);
+                        Reset(TextInputPrompt);
                         
                         // Hide Progressbar
                         Set(progressVisibility, false);
@@ -371,11 +386,9 @@
                     LayoutMinHeight: =32
                     LayoutMinWidth: =96
                     OnChange: =false
-                    OnSelect: |+
+                    OnSelect: |
                         =Reset(TextInputPrompt);
                         Set(clearTime, Now());
-                        //Filter(mgpt_reponses, 'Created On' >= clearTime)
-                        
                     Text: ="Clear"
                     Width: =96
                     X: =0
