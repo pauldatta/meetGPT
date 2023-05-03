@@ -92,6 +92,7 @@
                     ZIndex: =1
 
                 "TabListTemperature As 'Tab list'.pcfdataset":
+                    Alignment: ='PowerApps.CoreControls.TabList.Alignment'.Horizontal
                     DefaultSelectedItems: |-
                         =[{name: "Creative", t: 0.85}]
                     DisplayMode: =DisplayMode.Edit
@@ -123,7 +124,7 @@
                     LayoutMinWidth: =20
                     Size: =13
                     Text: |-
-                        ="Temp: " & varGPTTemperature & " ClearTime: " & clearTime
+                        ="Temp: " & varGPTTemperature
                     ZIndex: =3
 
                 "Progress1 As 'Progress Bar'":
@@ -153,7 +154,7 @@
                             Filter(
                                 mgpt_reponses,
                                 'Created On' >= Today(),
-                                'User' = User().Email
+                                User = User().Email
                             ),
                             'Created On',
                             SortOrder.Descending
@@ -162,7 +163,7 @@
                             Filter(
                                 mgpt_reponses,
                                 'Created On' >= clearTime,
-                                'User' = User().Email
+                                User = User().Email
                             ),
                             'Created On',
                             SortOrder.Descending
@@ -185,14 +186,12 @@
                     Fill: =RGBA(251, 251, 251, 1)
                     Height: =Self.Size * 1.8
                     OnSelect: =Select(Parent)
-                    PaddingBottom: =10
                     PaddingLeft: =0
                     PaddingRight: =0
                     Text: =ThisItem.Response
-                    VerticalAlign: =VerticalAlign.Top
                     Width: =Parent.TemplateWidth - 90
                     X: =65
-                    Y: =54
+                    Y: =LabelPrompt_1.Y + LabelPrompt_1.Height + 10
                     ZIndex: =2
 
                 LabelPrompt_1 As label:
@@ -214,11 +213,12 @@
 
                 Seperator_1 As rectangle:
                     BorderColor: =RGBA(153, 207, 236, 1)
-                    Fill: =RGBA(204, 231, 246, 1)
-                    Height: =3
+                    Fill: =RGBA(232, 244, 217, 1)
+                    Height: =2
                     OnSelect: =Select(Parent)
-                    Width: =Parent.TemplateWidth
-                    Y: =
+                    Width: =1317
+                    X: =16
+                    Y: =LabelCreatedOn.Y + 30
                     ZIndex: =5
 
                 ImageUser1 As image:
@@ -233,7 +233,7 @@
                     Y: =11
                     ZIndex: =6
 
-                Icon3 As icon.Bookmark:
+                IconResponse As icon.Bookmark:
                     BorderColor: =RGBA(89, 0, 0, 1)
                     Color: =RGBA(102, 182, 227, 1)
                     DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -242,8 +242,8 @@
                     Icon: =Icon.Bookmark
                     OnSelect: =Select(Parent)
                     Width: =24
-                    X: =23
-                    Y: =65
+                    X: =LabelResponse_1.X - 40
+                    Y: =LabelResponse_1.Y+10
                     ZIndex: =7
 
                 LabelCreatedOn As label:
@@ -257,8 +257,8 @@
                     Size: =10
                     Text: =ThisItem.'Created On'
                     Width: =188
-                    X: =1143
-                    Y: =339
+                    X: =1145
+                    Y: =LabelResponse_1.Y + LabelResponse_1.Height
                     ZIndex: =8
 
         FooterContainer1 As groupContainer.horizontalAutoLayoutContainer:
@@ -281,14 +281,14 @@
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 EnableSpellCheck: =true
-                FillPortions: =1
+                FillPortions: =9
                 FocusedBorderThickness: =4
                 Height: =80
                 HintText: ="Chat with GPT"
                 HoverBorderColor: =RGBA(89, 0, 0, 1)
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(222, 179, 184, 1)
-                LayoutMinWidth: =Parent.Width-225
+                LayoutMinWidth: =
                 MaxLength: =2000
                 Mode: =TextMode.MultiLine
                 OnChange: |
@@ -299,7 +299,9 @@
                 ZIndex: =1
 
             Container7 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.Start
                 Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Center
                 LayoutDirection: =LayoutDirection.Vertical
                 LayoutMinHeight: =100
                 LayoutMinWidth: =100
@@ -307,13 +309,17 @@
                 ZIndex: =2
 
                 LabelTokenCount As label:
+                    AutoHeight: =true
                     BorderColor: =RGBA(89, 0, 0, 1)
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
+                    FontWeight: =FontWeight.Semibold
                     Live: =Live.Assertive
+                    PaddingLeft: =10
                     Size: =13
                     Text: =Concatenate(Len(TextInputPrompt.Text),"/2000")
                     Tooltip: ="Prompt Token Count"
+                    VerticalAlign: =VerticalAlign.Top
                     ZIndex: =1
 
                 ButtonCanvas1Send As Button:
@@ -407,7 +413,7 @@
                     Y: =40
                     ZIndex: =6
 
-                    ButtonSaveIcon_2 As button:
+                    ButtonSaveIcon As button:
                         Align: =Align.Right
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
@@ -472,7 +478,7 @@
                         PaddingLeft: =0
                         PaddingRight: =10
                         Size: =10
-                        Text: ="Send"
+                        Text: =sendButtonText
                         Width: =ContainerSaveButton.Width - Self.BorderThickness
                         X: =2
                         Y: =1
@@ -480,7 +486,7 @@
 
                     Icon1_2 As icon.Send:
                         BorderColor: =RGBA(89, 0, 0, 1)
-                        Color: =If(ButtonSaveIcon_2.Pressed, Color.Black, Color.White)
+                        Color: =If(ButtonSaveIcon.Pressed, Color.Black, Color.White)
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
                         DisabledColor: =RGBA(244, 244, 244, 1)
                         Fill: =Color.Transparent
