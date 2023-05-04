@@ -1,0 +1,104 @@
+[
+  {
+    "DisplayName": "mgpt_users (Views)",
+    "Name": "_cr833_mgpt_users_views",
+    "RelatedEntityName": "mgpt_users",
+    "TrimmedViewName": true,
+    "Type": "ViewInfo",
+    "ViewInfoNameMapping": {
+      "73eb16bb-7c93-4b11-8580-4f398be5fa39": "mgpt_users Associated View",
+      "7ae538a3-52ea-ed11-a7c6-002248044d4e": "MVP Users",
+      "bcf0ebd1-5bd8-4a57-8749-92ca92c27d72": "mgpt_users Advanced Find View",
+      "c9cb7864-4600-423c-8725-af844dd30a0b": "Inactive mgpt_users",
+      "d912ac19-af97-4b32-b6f6-c6b901117a64": "Active mgpt_users",
+      "ddb787d4-e7a9-4bea-8d57-e26144f65f2e": "mgpt_users Lookup View",
+      "f2edfe03-53ea-ed11-a7c6-002248044d4e": "RateLimited Users"
+    }
+  },
+  {
+    "DisplayName": "Status (mgpt_users)",
+    "Name": "cr833_mgpt_users_statecode",
+    "OptionSetInfoNameMapping": {
+      "0": "Active",
+      "1": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statecode",
+        "OptionSetReferenceEntityName": "mgpt_users"
+      }
+    },
+    "OptionSetTypeKey": "StateType",
+    "RelatedColumnInvariantName": "statecode",
+    "RelatedEntityName": "mgpt_users",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "DisplayName": "Status Reason (mgpt_users)",
+    "Name": "cr833_mgpt_users_statuscode",
+    "OptionSetInfoNameMapping": {
+      "1": "Active",
+      "2": "Inactive"
+    },
+    "OptionSetIsBooleanValued": false,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "statuscode",
+        "OptionSetReferenceEntityName": "mgpt_users"
+      }
+    },
+    "OptionSetTypeKey": "StatusType",
+    "RelatedColumnInvariantName": "statuscode",
+    "RelatedEntityName": "mgpt_users",
+    "Type": "OptionSetInfo"
+  },
+  {
+    "CdsFCBContext": "{\"FileType\":true,\"ImageExternalStorage\":true}",
+    "EntitySetName": "cr833_mgpt_userses",
+    "IsHidden": false,
+    "IsSampleData": false,
+    "IsWritable": true,
+    "LogicalName": "cr833_mgpt_users",
+    "MaxGetRowsCount": 500,
+    "Name": "mgpt_users",
+    "NativeCDSDataSourceInfoNameMapping": {
+      "_ownerid_value": "Owner",
+      "cr833_mgpt_users_AsyncOperations": "System Jobs",
+      "cr833_mgpt_users_BulkDeleteFailures": "Bulk Delete Failures",
+      "cr833_mgpt_users_connections1": "Connections (cr833_mgpt_users_connections1)",
+      "cr833_mgpt_users_connections2": "Connections (cr833_mgpt_users_connections2)",
+      "cr833_mgpt_users_DuplicateBaseRecord": "Duplicate Records (cr833_mgpt_users_DuplicateBaseRecord)",
+      "cr833_mgpt_users_DuplicateMatchingRecord": "Duplicate Records (cr833_mgpt_users_DuplicateMatchingRecord)",
+      "cr833_mgpt_users_MailboxTrackingFolders": "Mailbox Auto Tracking Folders",
+      "cr833_mgpt_users_PrincipalObjectAttributeAccesses": "Field Sharing",
+      "cr833_mgpt_users_ProcessSession": "Process Sessions",
+      "cr833_mgpt_users_QueueItems": "Queue Items",
+      "cr833_mgpt_users_SyncErrors": "Sync Errors",
+      "cr833_mgpt_usersid": "mgpt_users",
+      "cr833_name": "Name",
+      "cr833_ratelimit": "Rate Limit",
+      "cr833_tokensconsumed": "Tokens Consumed",
+      "createdby": "Created By",
+      "createdon": "Created On",
+      "createdonbehalfby": "Created By (Delegate)",
+      "importsequencenumber": "Import Sequence Number",
+      "modifiedby": "Modified By",
+      "modifiedon": "Modified On",
+      "modifiedonbehalfby": "Modified By (Delegate)",
+      "overriddencreatedon": "Record Created On",
+      "owningbusinessunit": "Owning Business Unit",
+      "owningteam": "Owning Team",
+      "owninguser": "Owning User",
+      "statecode": "Status",
+      "statuscode": "Status Reason",
+      "timezoneruleversionnumber": "Time Zone Rule Version Number",
+      "utcconversiontimezonecode": "UTC Conversion Time Zone Code",
+      "versionnumber": "Version Number"
+    },
+    "PreferredName": "mgpt_users",
+    "Type": "NativeCDSDataSourceInfo"
+  }
+]

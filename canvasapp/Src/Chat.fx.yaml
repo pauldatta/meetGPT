@@ -124,7 +124,7 @@
                     LayoutMinWidth: =20
                     Size: =13
                     Text: |-
-                        ="Temp: " & varGPTTemperature
+                        ="Temp: " & varGPTTemperature & " Usage Left:" & userRateLimit
                     ZIndex: =3
 
                 "Progress1 As 'Progress Bar'":
