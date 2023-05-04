@@ -40,7 +40,7 @@
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "05/04/2023 08:27:27",
+  "HeaderLastSavedDateTimeUTC": "05/04/2023 08:53:28",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "19040fda-2fe4-42d2-a0e1-c5db86bd112a": "\"/providers/microsoft.powerapps/apis/shared_office365users/connections/shared-office365user-ba9e5bb7-2b54-42dd-88ad-e415a4f7d3bd\"",
@@ -69,8 +69,8 @@
   "OrderGroupControls": {},
   "OrderPcfTemplate": {
     "PowerApps_CoreControls_ButtonCanvas": 2,
-    "PowerApps_CoreControls_Progress": 0,
-    "PowerApps_CoreControls_TabList": 1
+    "PowerApps_CoreControls_Progress": 1,
+    "PowerApps_CoreControls_TabList": 0
   },
   "OrderTemplate": {},
   "OrderXMLTemplate": {
@@ -206,15 +206,15 @@
     "LabelGPTParams": 7,
     "LabelPrompt_1": 15,
     "LabelResponse_1": 16,
-    "LabelTemperature": 11,
+    "LabelTemperature": 10,
     "LabelTokenCount": 23,
     "LabelWelcome": 3,
     "MainSectionContainer": 5,
-    "name1_1": 10,
-    "Progress1": 8,
+    "name1_1": 9,
+    "Progress1": 11,
     "ScreenContainer": 0,
     "Seperator_1": 19,
-    "TabListTemperature": 9,
+    "TabListTemperature": 8,
     "TextInputPrompt": 21
   },
   "ResourcesJsonIndices": {

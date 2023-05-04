@@ -154,7 +154,7 @@
                             Filter(
                                 mgpt_reponses,
                                 'Created On' >= Today(),
-                                User = User().Email
+                                'User' = User().Email
                             ),
                             'Created On',
                             SortOrder.Descending
@@ -163,7 +163,7 @@
                             Filter(
                                 mgpt_reponses,
                                 'Created On' >= clearTime,
-                                User = User().Email
+                                'User' = User().Email
                             ),
                             'Created On',
                             SortOrder.Descending
@@ -475,6 +475,18 @@
                             
                             // Refresh data
                             Refresh(mgpt_reponses);
+                            Refresh(mgpt_users);
+                            
+                            // Check Rate Limits
+                            Set(userRecord, LookUp(mgpt_users, cr833_name = User().Email));
+                            Set(
+                              userRateLimit,
+                              If(
+                                IsBlank(userRecord),
+                                "Unlimited", // Unlimited is -1 in the DB
+                                userRecord.cr833_ratelimit
+                              )
+                            )
                         PaddingLeft: =0
                         PaddingRight: =10
                         Size: =10
