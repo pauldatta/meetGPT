@@ -75,6 +75,7 @@ Use the entire OpenAI URL including the deployment name and API version
 - [Planned] Prompt analysis, for admin to monitor user activity and feedback
 - [Planned] Submit an idea section for business users to share AI use cases for their work
 - [Planned] Advanced mode for users to send custom prompts and export JSON etc like Azure Open AI Studio
+- [Planned] Add a datasource (experimental, might start with SPO/OneDrive) and Q&A
 
 ## Contributing
 
