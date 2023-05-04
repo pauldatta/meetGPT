@@ -6,9 +6,10 @@ Welcome to Meet GPT! This allows business users to experience Azure Open AI Mode
 
 - Generates user input responses using Azure Open AI service API
 - Stores user data in Dataverse tables for easy analysis
+- Admin model driven app to manage user access and rate limits
 - More features to come!
 
-![Screenshot of Meet GPT app](images/MeetGPT_1_0_0_5.png)
+![Screenshot of Meet GPT app](images/MeetGPT_1_0_0_6.png)  ![Screenshot of Admin GPT app](images/AdminGPT_1_0_0_6.png)
 
 ## Pre-requisites
 
@@ -37,6 +38,15 @@ Use the entire OpenAI URL including the deployment name and API version
 
 ## Changelog
 
+- **Version 1.0.0.6:**
+  - Added an admin model driven app, still WIP but you can change rate limits
+  - Added soft rate limits where
+    - Value of `-1` : Unlimited API calls
+    - Value of `0` : Cant make any API calls
+    - Value > `0`: Number of API calls, so a user with Rate Limit set to 100 can press `send` a 100 times
+  - Updated the Flow to track limits and also calculate tokens sent
+  - Updated the UI to show the rate limit with no enforcement
+  - New users get added to the User's table automatically with a default Rate Limit of 100. 
 - **Version 1.0.0.5:**
   - UI changes, improved layout and design
   - Fixed GalleryChat message loading filters, clear and submit action datasource refresh
@@ -60,8 +70,8 @@ Use the entire OpenAI URL including the deployment name and API version
 
 ## Roadmap
 
-- [Planned] Admin section to manage user access and token/rate limits
-- [Planned] Workflow for users to request more tokens with simple gamification
+- [WIP] Admin section to manage user access and token/rate limits
+- [WIP] Workflow for users to request more tokens with simple gamification
 - [Planned] Prompt analysis, for admin to monitor user activity and feedback
 - [Planned] Submit an idea section for business users to share AI use cases for their work
 - [Planned] Advanced mode for users to send custom prompts and export JSON etc like Azure Open AI Studio
