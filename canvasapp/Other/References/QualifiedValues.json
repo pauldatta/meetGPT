@@ -8,6 +8,13 @@
       }
     },
     {
+      "Kind": "default.cds_cr833_mgpt_users_forms",
+      "Namespace": "mgpt_users (Forms)",
+      "Values": {
+        "Information": "ccce712a-ed35-4eeb-9eef-b9a25d912bc4"
+      }
+    },
+    {
       "Kind": "default.cds_cr833_mgpt_tabs_forms",
       "Namespace": "mgpt_tabs (Forms)",
       "Values": {

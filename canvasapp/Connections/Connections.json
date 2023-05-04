@@ -1,50 +1,42 @@
 {
-  "19040fda-2fe4-42d2-a0e1-c5db86bd112a": {
+  "274256ec-01fe-4d4e-bfc7-86ba43630d6d": {
     "connectionRef": {
-      "apiTier": "Standard",
       "displayName": "Office 365 Users",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1626/1.0.1626.3238/office365users/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_office365users",
-      "parameterHints": {},
-      "parameterHintsV2": {}
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users"
     },
     "datasets": {},
     "dataSources": [],
     "dependencies": {},
     "dependents": [
-      "ffb158d4-da8e-4d64-92e7-5aabee76c5c7"
+      "a95b9a0f-30a4-48f3-80dd-1c916defb3d7"
     ],
-    "id": "19040fda-2fe4-42d2-a0e1-c5db86bd112a"
+    "id": "274256ec-01fe-4d4e-bfc7-86ba43630d6d"
   },
-  "eacb60bf-bdb5-4b2a-be9f-4fd74606a6f6": {
+  "807a06b3-54fc-4518-9f1d-3ec9ba3a9d07": {
     "connectionRef": {
-      "apiTier": "Premium",
-      "bypassConsent": true,
       "displayName": "Microsoft Dataverse",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1628/1.0.1628.3245/commondataserviceforapps/icon.png",
-      "id": "/providers/microsoft.powerapps/apis/shared_commondataserviceforapps",
-      "parameterHints": {},
-      "parameterHintsV2": {}
+      "id": "/providers/microsoft.powerapps/apis/shared_commondataserviceforapps"
     },
     "datasets": {},
     "dataSources": [],
     "dependencies": {},
     "dependents": [
-      "ffb158d4-da8e-4d64-92e7-5aabee76c5c7"
+      "a95b9a0f-30a4-48f3-80dd-1c916defb3d7"
     ],
-    "id": "eacb60bf-bdb5-4b2a-be9f-4fd74606a6f6"
+    "id": "807a06b3-54fc-4518-9f1d-3ec9ba3a9d07"
   },
-  "ffb158d4-da8e-4d64-92e7-5aabee76c5c7": {
+  "a95b9a0f-30a4-48f3-80dd-1c916defb3d7": {
     "connectionRef": {
-      "apiTier": "Standard",
       "displayName": "Logic flows",
       "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1615/1.0.1615.3163/logicflows/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_logicflows",
       "parameterHints": {
-        "19040fda-2fe4-42d2-a0e1-c5db86bd112a": {
+        "274256ec-01fe-4d4e-bfc7-86ba43630d6d": {
           "value": "shared_office365users"
         },
-        "eacb60bf-bdb5-4b2a-be9f-4fd74606a6f6": {
+        "807a06b3-54fc-4518-9f1d-3ec9ba3a9d07": {
           "value": "shared_commondataserviceforapps"
         },
         "workflowEntityId": {
@@ -56,10 +48,10 @@
       },
       "parameterHintsV2": {
         "shared_commondataserviceforapps": {
-          "value": "eacb60bf-bdb5-4b2a-be9f-4fd74606a6f6"
+          "value": "807a06b3-54fc-4518-9f1d-3ec9ba3a9d07"
         },
         "shared_office365users": {
-          "value": "19040fda-2fe4-42d2-a0e1-c5db86bd112a"
+          "value": "274256ec-01fe-4d4e-bfc7-86ba43630d6d"
         },
         "workflowEntityId": {
           "value": "2fda0893-bfe4-ed11-a7c7-002248044d4e"
@@ -74,10 +66,10 @@
       "mgpt_getResponse"
     ],
     "dependencies": {
-      "shared_commondataserviceforapps": "eacb60bf-bdb5-4b2a-be9f-4fd74606a6f6",
-      "shared_office365users": "19040fda-2fe4-42d2-a0e1-c5db86bd112a"
+      "shared_commondataserviceforapps": "807a06b3-54fc-4518-9f1d-3ec9ba3a9d07",
+      "shared_office365users": "274256ec-01fe-4d4e-bfc7-86ba43630d6d"
     },
     "dependents": [],
-    "id": "ffb158d4-da8e-4d64-92e7-5aabee76c5c7"
+    "id": "a95b9a0f-30a4-48f3-80dd-1c916defb3d7"
   }
 }

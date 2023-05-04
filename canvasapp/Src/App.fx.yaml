@@ -1,6 +1,6 @@
 App As appinfo:
     BackEnabled: =false
-    OnStart: |-
+    OnStart: |+
         =ClearCollect(
             colTabs,
             {
@@ -63,6 +63,18 @@ App As appinfo:
         Set(sendButtonText, "Send");
         //Set(clearTime, DateTime(2023, 05, 01,0,0,0));
         Set(clearTime, Today());
+        
+        // Check Rate Limits
+        Set(userRecord, LookUp(mgpt_users, cr833_name = User().Email));
+        Set(
+          userRateLimit,
+          If(
+            IsBlank(userRecord),
+            "Unlimited", // Unlimited is -1 in the DB
+            userRecord.cr833_ratelimit
+          )
+        )
+        
 
     Host As hostControl.DefaultHostControlVariant:
         OnCancel: =false
