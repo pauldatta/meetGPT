@@ -109,11 +109,11 @@
     "Id": "3e1f8619-ac3c-497c-b327-519d734e87b6",
     "InstrumentationKey": "",
     "ManualOfflineProfileId": "",
-    "Name": "Meet GPT Admin",
+    "Name": "Meet GPT",
     "OriginatingVersion": "1.330"
   },
   "PublishInfo": {
-    "AppName": "Meet GPT Admin",
+    "AppName": "Meet GPT",
     "BackgroundColor": "RGBA(0,176,240,1)",
     "IconColor": "RGBA(255,255,255,1)",
     "IconName": "Edit",

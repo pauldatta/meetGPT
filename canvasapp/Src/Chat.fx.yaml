@@ -367,7 +367,7 @@
                         Set(sendButtonText, "Sending..");
                         
                         // Call flow
-                        Set(GPTResponse, mgpt_getResponse.Run("Null",varGPTInstructions, varPrompt, varGPTMaxTokens, varGPTTemperature, varGPTTopP, varGPTStop));
+                        Set(GPTResponse, mgpt_getResponse.Run(varGPTInstructions, varPrompt, varGPTMaxTokens, varGPTTemperature, varGPTTopP, varGPTStop));
                         
                         // Clear text
                         Reset(TextInputPrompt);
@@ -423,7 +423,7 @@
                         Height: =ContainerSaveButton.Height - Self.BorderThickness
                         HoverColor: =RGBA(255, 255, 255, 1)
                         HoverFill: =ColorFade(Color.AliceBlue,-20%)
-                        OnSelect: |-
+                        OnSelect: |
                             =// Open AI
                             Set(
                                 varGPTInstructions,
@@ -453,40 +453,70 @@
                                 varGPTStop,
                                 "null"
                             );
-                            
                             // Set Prompt
-                            Set(varPrompt, TextInputPrompt.Text);
-                            
+                            Set(
+                                varPrompt,
+                                TextInputPrompt.Text
+                            );
                             // Show Progressbar
-                            Set(progressVisibility, true);
-                            Set(sendButtonDisabled, true);
-                            Set(sendButtonText, "Sending..");
-                            
+                            Set(
+                                progressVisibility,
+                                true
+                            );
+                            Set(
+                                sendButtonDisabled,
+                                true
+                            );
+                            Set(
+                                sendButtonText,
+                                "Sending.."
+                            );
                             // Call flow
-                            Set(GPTResponse, mgpt_getResponse.Run("Null",varGPTInstructions, varPrompt, varGPTMaxTokens, varGPTTemperature, varGPTTopP, varGPTStop));
-                            
+                            Set(
+                                GPTResponse,
+                                mgpt_getResponse.Run(
+                                    varGPTInstructions,
+                                    varPrompt,
+                                    varGPTMaxTokens,
+                                    varGPTTemperature,
+                                    varGPTTopP,
+                                    varGPTStop
+                                )
+                            );
                             // Clear text
                             Reset(TextInputPrompt);
-                            
                             // Hide Progressbar
-                            Set(progressVisibility, false);
-                            Set(sendButtonDisabled, false);
-                            Set(sendButtonText, "Send");
-                            
+                            Set(
+                                progressVisibility,
+                                false
+                            );
+                            Set(
+                                sendButtonDisabled,
+                                false
+                            );
+                            Set(
+                                sendButtonText,
+                                "Send"
+                            );
                             // Refresh data
                             Refresh(mgpt_reponses);
                             Refresh(mgpt_users);
-                            
                             // Check Rate Limits
-                            Set(userRecord, LookUp(mgpt_users, cr833_name = User().Email));
                             Set(
-                              userRateLimit,
-                              If(
-                                IsBlank(userRecord),
-                                "Unlimited", // Unlimited is -1 in the DB
-                                userRecord.cr833_ratelimit
-                              )
-                            )
+                                userRecord,
+                                LookUp(
+                                    mgpt_users,
+                                    cr833_name = User().Email
+                                )
+                            );
+                            Set(
+                                userRateLimit,
+                                If(
+                                    IsBlank(userRecord),
+                                    "Unlimited",// Unlimited is -1 in the DB
+                                    userRecord.cr833_ratelimit
+                                )
+                            );
                         PaddingLeft: =0
                         PaddingRight: =10
                         Size: =10
