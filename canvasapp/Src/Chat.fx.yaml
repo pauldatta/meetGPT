@@ -154,7 +154,7 @@
                             Filter(
                                 mgpt_reponses,
                                 'Created On' >= Today(),
-                                'User' = User().Email
+                                User = User().Email
                             ),
                             'Created On',
                             SortOrder.Descending
@@ -163,7 +163,7 @@
                             Filter(
                                 mgpt_reponses,
                                 'Created On' >= clearTime,
-                                'User' = User().Email
+                                User = User().Email
                             ),
                             'Created On',
                             SortOrder.Descending
