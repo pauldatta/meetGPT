@@ -14,6 +14,26 @@
     }
   },
   {
+    "DisplayName": "favorite (mgpt_reponses)",
+    "Name": "cr833_mgpt_reponse_cr833_favorite",
+    "OptionSetInfoNameMapping": {
+      "0": "No",
+      "1": "Yes"
+    },
+    "OptionSetIsBooleanValued": true,
+    "OptionSetIsGlobal": false,
+    "OptionSetReference": {
+      "OptionSetReferenceItem0": {
+        "OptionSetReferenceColumnName": "cr833_favorite",
+        "OptionSetReferenceEntityName": "mgpt_reponses"
+      }
+    },
+    "OptionSetTypeKey": "BooleanType",
+    "RelatedColumnInvariantName": "cr833_favorite",
+    "RelatedEntityName": "mgpt_reponses",
+    "Type": "OptionSetInfo"
+  },
+  {
     "DisplayName": "Status (mgpt_reponses)",
     "Name": "cr833_mgpt_reponse_statecode",
     "OptionSetInfoNameMapping": {
@@ -64,6 +84,7 @@
     "Name": "mgpt_reponses",
     "NativeCDSDataSourceInfoNameMapping": {
       "_ownerid_value": "Owner",
+      "cr833_favorite": "favorite",
       "cr833_mgpt_reponse_AsyncOperations": "System Jobs",
       "cr833_mgpt_reponse_BulkDeleteFailures": "Bulk Delete Failures",
       "cr833_mgpt_reponse_connections1": "Connections (cr833_mgpt_reponse_connections1)",

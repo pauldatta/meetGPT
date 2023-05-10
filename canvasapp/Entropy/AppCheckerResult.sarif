@@ -534,6 +534,18 @@
               "message": {
                 "text": "Error occurred running rule app-InefficientDelayLoading."
               }
+            },
+            {
+              "associatedRule": {
+                "id": "app-InefficientDelayLoading",
+                "index": 3
+              },
+              "descriptor": {
+                "id": "app-InefficientDelayLoading"
+              },
+              "message": {
+                "text": "Error occurred running rule app-InefficientDelayLoading."
+              }
             }
           ]
         }
@@ -767,6 +779,126 @@
                 "member": "AccessibleLabel",
                 "module": "Chat",
                 "type": "Chat.ScreenContainer.MainSectionContainer.Container2.LeftNavContainer.SearchTextInput1"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Chat.ScreenContainer.MainSectionContainer.Container2.GalleryChat.IconResponse.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Chat.ScreenContainer.MainSectionContainer.Container2.GalleryChat.IconResponse.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Chat",
+                "type": "Chat.ScreenContainer.MainSectionContainer.Container2.GalleryChat.IconResponse"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Chat.ScreenContainer.MainSectionContainer.Container2.GalleryChat.IconResponse.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Chat.ScreenContainer.MainSectionContainer.Container2.GalleryChat.IconResponse.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Chat",
+                "type": "Chat.ScreenContainer.MainSectionContainer.Container2.GalleryChat.IconResponse"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Chat.ScreenContainer.MainSectionContainer.Container2.GalleryChat.IconFavorited.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Chat.ScreenContainer.MainSectionContainer.Container2.GalleryChat.IconFavorited.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "Chat",
+                "type": "Chat.ScreenContainer.MainSectionContainer.Container2.GalleryChat.IconFavorited"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 0
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Chat.ScreenContainer.MainSectionContainer.Container2.GalleryChat.IconFavorited.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Chat.ScreenContainer.MainSectionContainer.Container2.GalleryChat.IconFavorited.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Chat",
+                "type": "Chat.ScreenContainer.MainSectionContainer.Container2.GalleryChat.IconFavorited"
               }
             }
           ],

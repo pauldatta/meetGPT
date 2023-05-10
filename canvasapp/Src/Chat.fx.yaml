@@ -87,7 +87,7 @@
                     FontWeight: =FontWeight.Semibold
                     LayoutMinWidth: =20
                     Size: =11
-                    Text: ="GPT Parameters"
+                    Text: ="GPT 3.5"
                     Width: =
                     ZIndex: =1
 
@@ -281,7 +281,8 @@
                             Sort(
                                 Filter(
                                     mgpt_reponses,
-                                    User = User().Email
+                                    User = User().Email,
+                                    'favorite' = true
                                 ),
                                 'Created On',
                                 SortOrder.Descending
@@ -355,7 +356,7 @@
                         Fill: =RGBA(232, 244, 217, 1)
                         Height: =2
                         OnSelect: =Select(Parent)
-                        Width: =675
+                        Width: =Parent.TemplateWidth
                         Y: =LabelCreatedOn.Y + 30
                         ZIndex: =5
 
@@ -378,7 +379,11 @@
                         DisabledColor: =RGBA(244, 244, 244, 1)
                         Height: =19
                         Icon: =Icon.Bookmark
-                        OnSelect: =Select(Parent)
+                        OnSelect: |-
+                            =mgpt_addRemoveFavorite.Run(ThisItem.mgpt_reponse, 1);
+                            Refresh(mgpt_reponses);
+                        Tooltip: ="Click to add as favorite"
+                        Visible: =!ThisItem.favorite
                         Width: =24
                         X: =LabelResponse_1.X - 40
                         Y: =LabelResponse_1.Y+10
@@ -395,9 +400,26 @@
                         Size: =10
                         Text: =ThisItem.'Created On'
                         Width: =188
-                        X: =444
-                        Y: =LabelResponse_1.Y + LabelResponse_1.Height
+                        X: =993
+                        Y: =283
                         ZIndex: =8
+
+                    IconFavorited As icon.BookmarkFilled:
+                        BorderColor: =RGBA(89, 0, 0, 1)
+                        Color: =RGBA(89, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Height: =IconResponse.Height
+                        Icon: =Icon.BookmarkFilled
+                        OnSelect: |-
+                            =mgpt_addRemoveFavorite.Run(ThisItem.mgpt_reponse, 0);
+                            Refresh(mgpt_reponses);
+                        Tooltip: ="Click to remove favorite"
+                        Visible: =ThisItem.favorite
+                        Width: =IconResponse.Width
+                        X: =IconResponse.X
+                        Y: =IconResponse.Y
+                        ZIndex: =9
 
         FooterContainer1 As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
