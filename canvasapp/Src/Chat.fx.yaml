@@ -74,7 +74,7 @@
                 Width: =1311
                 X: =27
                 Y: =85
-                ZIndex: =2
+                ZIndex: =1
 
                 LabelGPTParams As label:
                     Align: =Align.Center
@@ -142,124 +142,239 @@
                     Y: =0
                     ZIndex: =4
 
-            "GalleryChat As gallery.'BrowseLayout_Flexible_SocialFeed_ver4.0'":
-                BorderColor: =RGBA(89, 0, 0, 1)
-                Default: =Last(mgpt_reponses)
-                DelayItemLoading: =true
-                Fill: =RGBA(255, 255, 255, 1)
-                Items: |-
-                    =If(
-                        IsBlankOrError(clearTime),
-                        Sort(
-                            Filter(
-                                mgpt_reponses,
-                                'Created On' >= Today(),
-                                User = User().Email
-                            ),
-                            'Created On',
-                            SortOrder.Descending
-                        ),
-                        Sort(
-                            Filter(
-                                mgpt_reponses,
-                                'Created On' >= clearTime,
-                                User = User().Email
-                            ),
-                            'Created On',
-                            SortOrder.Descending
-                        )
-                    )
-                Layout: =Layout.Vertical
-                LayoutMinHeight: =287
-                LayoutMinWidth: =320
-                LoadingSpinner: =LoadingSpinner.Data
-                ShowNavigation: =true
-                TemplatePadding: =4
-                TemplateSize: =Min(870, Self.Height - 60)
+            Container2 As groupContainer.horizontalAutoLayoutContainer:
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
                 ZIndex: =4
 
-                LabelResponse_1 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(0, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisplayMode: =DisplayMode.View
-                    Fill: =RGBA(251, 251, 251, 1)
-                    Height: =Self.Size * 1.8
-                    OnSelect: =Select(Parent)
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    Text: =ThisItem.Response
-                    Width: =Parent.TemplateWidth - 90
-                    X: =65
-                    Y: =LabelPrompt_1.Y + LabelPrompt_1.Height + 10
+                LeftNavContainer As groupContainer.verticalAutoLayoutContainer:
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =100
+                    LayoutMode: =LayoutMode.Auto
+                    Y: =77
+                    ZIndex: =1
+
+                    "TabListNav As 'Tab list'.pcfdataset":
+                        AlignInContainer: =AlignInContainer.Stretch
+                        Alignment: ='PowerApps.CoreControls.TabList.Alignment'.Vertical
+                        DefaultSelectedItems: |-
+                            =[{ name: "Current Session"}]
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        Height: =45
+                        Items: |-
+                            =[{ name: "Current Session"}, {name: "History"}, {name: "Favorites"}]
+                        LayoutMinHeight: =30
+                        LayoutMinWidth: =100
+                        RenderSize: ='PowerApps.CoreControls.TabList.RenderSize'.Large
+                        Width: =Parent.Width
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                        name1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="name"
+                            FieldName: ="name"
+                            FieldType: ="s"
+                            FieldVariantName: ="textualColumn"
+                            Order: =1
+                            ZIndex: =9
+
+                    "GallerySearch1 As gallery.'BrowseLayout_Flexible_SocialFeed_ver4.0'":
+                        BorderColor: =RGBA(89, 0, 0, 1)
+                        DelayItemLoading: =true
+                        Fill: =RGBA(255, 255, 255, 1)
+                        FillPortions: =3
+                        Items: |-
+                            =If(
+                                !IsBlank(SearchTextInput1.Text),
+                                Search(
+                                    Filter(
+                                        'mgpt_reponses',
+                                        'User' = User().Email
+                                    ),
+                                    SearchTextInput1.Text,
+                                    "cr833_prompt"
+                                )
+                            )
+                        Layout: =Layout.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =100
+                        LoadingSpinner: =LoadingSpinner.Data
+                        TemplateSize: =Min(870, Self.Height - 60)
+                        Transition: =Transition.Pop
+                        Visible: =!IsBlank(SearchTextInput1.Text)
+                        Width: =Parent.Width
+                        ZIndex: =2
+
+                        SearchResultNav As label:
+                            AutoHeight: =true
+                            Color: =RGBA(0, 0, 0, 1)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            Height: =36
+                            HoverColor: =Color.DarkBlue
+                            OnSelect: =Select(Parent)
+                            PaddingBottom: =0
+                            PaddingLeft: =0
+                            PaddingRight: =0
+                            PaddingTop: =0
+                            Size: =8
+                            Text: =ThisItem.Prompt
+                            Width: =Parent.Width-Icon1.Width - 15
+                            Wrap: =false
+                            Y: =
+                            ZIndex: =2
+
+                        Icon1 As icon.ChevronRight:
+                            BorderColor: =RGBA(89, 0, 0, 1)
+                            Color: =RGBA(89, 0, 0, 1)
+                            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                            DisabledColor: =RGBA(244, 244, 244, 1)
+                            Height: =10
+                            Icon: =Icon.ChevronRight
+                            OnSelect: =Select(Parent)
+                            Width: =11
+                            X: =126
+                            Y: =SearchResultNav.Y + 1
+                            ZIndex: =3
+
+                    SearchTextInput1 As text:
+                        BorderColor: =RGBA(89, 0, 0, 1)
+                        BorderThickness: =2
+                        Color: =RGBA(0, 0, 0, 1)
+                        Default: =
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        FocusedBorderThickness: =4
+                        HintText: ="Search Prompt"
+                        HoverBorderColor: =RGBA(89, 0, 0, 1)
+                        HoverColor: =RGBA(0, 0, 0, 1)
+                        HoverFill: =RGBA(222, 179, 184, 1)
+                        Size: =8
+                        Width: =Parent.Width
+                        ZIndex: =3
+
+                "GalleryChat As gallery.'BrowseLayout_Flexible_SocialFeed_ver4.0'":
+                    BorderColor: =RGBA(89, 0, 0, 1)
+                    Default: =Last(mgpt_reponses)
+                    DelayItemLoading: =true
+                    Fill: =RGBA(255, 255, 255, 1)
+                    FillPortions: =8
+                    Items: |-
+                        =If(
+                            IsBlankOrError(clearTime),
+                            Sort(
+                                Filter(
+                                    mgpt_reponses,
+                                    'Created On' >= Today(),
+                                    User = User().Email
+                                ),
+                                'Created On',
+                                SortOrder.Descending
+                            ),
+                            Sort(
+                                Filter(
+                                    mgpt_reponses,
+                                    'Created On' >= clearTime,
+                                    User = User().Email
+                                ),
+                                'Created On',
+                                SortOrder.Descending
+                            )
+                        )
+                    Layout: =Layout.Vertical
+                    LayoutMinHeight: =287
+                    LayoutMinWidth: =320
+                    LoadingSpinner: =LoadingSpinner.Data
+                    ShowNavigation: =true
+                    TemplatePadding: =4
+                    TemplateSize: =Min(870, Self.Height - 60)
                     ZIndex: =2
 
-                LabelPrompt_1 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(0, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisplayMode: =DisplayMode.View
-                    Height: =28
-                    OnSelect: =Select(Parent)
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =ThisItem.Prompt
-                    VerticalAlign: =VerticalAlign.Top
-                    Width: =Parent.TemplateWidth - 100
-                    X: =65
-                    Y: =11
-                    ZIndex: =4
+                    LabelResponse_1 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =DisplayMode.View
+                        Fill: =RGBA(251, 251, 251, 1)
+                        Height: =Self.Size * 1.8
+                        OnSelect: =Select(Parent)
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        Text: =ThisItem.Response
+                        Width: =Parent.TemplateWidth - 90
+                        X: =65
+                        Y: =LabelPrompt_1.Y + LabelPrompt_1.Height + 10
+                        ZIndex: =2
 
-                Seperator_1 As rectangle:
-                    BorderColor: =RGBA(153, 207, 236, 1)
-                    Fill: =RGBA(232, 244, 217, 1)
-                    Height: =2
-                    OnSelect: =Select(Parent)
-                    Width: =1317
-                    X: =16
-                    Y: =LabelCreatedOn.Y + 30
-                    ZIndex: =5
+                    LabelPrompt_1 As label:
+                        AutoHeight: =true
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisplayMode: =DisplayMode.View
+                        Height: =28
+                        OnSelect: =Select(Parent)
+                        PaddingLeft: =0
+                        PaddingRight: =0
+                        PaddingTop: =0
+                        Text: =ThisItem.Prompt
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =Parent.TemplateWidth - 100
+                        X: =65
+                        Y: =11
+                        ZIndex: =4
 
-                ImageUser1 As image:
-                    BorderColor: =RGBA(89, 0, 0, 1)
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    Height: =28
-                    Image: =User().Image
-                    OnSelect: =Select(Parent)
-                    Width: =38
-                    X: =16
-                    Y: =11
-                    ZIndex: =6
+                    Seperator_1 As rectangle:
+                        BorderColor: =RGBA(153, 207, 236, 1)
+                        Fill: =RGBA(232, 244, 217, 1)
+                        Height: =2
+                        OnSelect: =Select(Parent)
+                        Width: =675
+                        Y: =LabelCreatedOn.Y + 30
+                        ZIndex: =5
 
-                IconResponse As icon.Bookmark:
-                    BorderColor: =RGBA(89, 0, 0, 1)
-                    Color: =RGBA(102, 182, 227, 1)
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(244, 244, 244, 1)
-                    Height: =19
-                    Icon: =Icon.Bookmark
-                    OnSelect: =Select(Parent)
-                    Width: =24
-                    X: =LabelResponse_1.X - 40
-                    Y: =LabelResponse_1.Y+10
-                    ZIndex: =7
+                    ImageUser1 As image:
+                        BorderColor: =RGBA(89, 0, 0, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =RGBA(244, 244, 244, 1)
+                        Height: =28
+                        Image: =User().Image
+                        OnSelect: =Select(Parent)
+                        Width: =38
+                        X: =16
+                        Y: =11
+                        ZIndex: =6
 
-                LabelCreatedOn As label:
-                    Align: =Align.Right
-                    BorderColor: =RGBA(89, 0, 0, 1)
-                    Color: =RGBA(0, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    FontWeight: =FontWeight.Lighter
-                    Height: =31
-                    OnSelect: =Select(Parent)
-                    Size: =10
-                    Text: =ThisItem.'Created On'
-                    Width: =188
-                    X: =1145
-                    Y: =LabelResponse_1.Y + LabelResponse_1.Height
-                    ZIndex: =8
+                    IconResponse As icon.Bookmark:
+                        BorderColor: =RGBA(89, 0, 0, 1)
+                        Color: =RGBA(102, 182, 227, 1)
+                        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                        DisabledColor: =RGBA(244, 244, 244, 1)
+                        Height: =19
+                        Icon: =Icon.Bookmark
+                        OnSelect: =Select(Parent)
+                        Width: =24
+                        X: =LabelResponse_1.X - 40
+                        Y: =LabelResponse_1.Y+10
+                        ZIndex: =7
+
+                    LabelCreatedOn As label:
+                        Align: =Align.Right
+                        BorderColor: =RGBA(89, 0, 0, 1)
+                        Color: =RGBA(0, 0, 0, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FontWeight: =FontWeight.Lighter
+                        Height: =31
+                        OnSelect: =Select(Parent)
+                        Size: =10
+                        Text: =ThisItem.'Created On'
+                        Width: =188
+                        X: =444
+                        Y: =LabelResponse_1.Y + LabelResponse_1.Height
+                        ZIndex: =8
 
         FooterContainer1 As groupContainer.horizontalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
