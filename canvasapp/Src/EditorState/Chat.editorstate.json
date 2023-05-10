@@ -8586,7 +8586,8 @@
           "InvariantPropertyName": "DefaultSelectedItems",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
-        }
+        },
+        "OnSelect"
       ],
       "DynamicProperties": [
         {
@@ -8715,6 +8716,11 @@
         {
           "Category": "Design",
           "PropertyName": "Width",
+          "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Behavior",
+          "PropertyName": "OnSelect",
           "RuleProviderType": "Unknown"
         }
       ],
