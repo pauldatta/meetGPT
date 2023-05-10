@@ -87,11 +87,14 @@
                     FontWeight: =FontWeight.Semibold
                     LayoutMinWidth: =20
                     Size: =11
-                    Text: ="GPT 3.5"
+                    Text: |-
+                        ="GPT 3.5
+                        Temp: " & varGPTTemperature  
                     Width: =
                     ZIndex: =1
 
                 "TabListTemperature As 'Tab list'.pcfdataset":
+                    AlignInContainer: =AlignInContainer.Stretch
                     Alignment: ='PowerApps.CoreControls.TabList.Alignment'.Horizontal
                     DefaultSelectedItems: |-
                         =[{name: "Creative", t: 0.85}]
@@ -120,11 +123,11 @@
                     BorderColor: =RGBA(89, 0, 0, 1)
                     Color: =RGBA(0, 0, 0, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
-                    FillPortions: =2
+                    FillPortions: =1
                     LayoutMinWidth: =20
-                    Size: =13
+                    Size: =11
                     Text: |-
-                        ="Temp: " & varGPTTemperature & " | Usage Left: " & userRateLimit
+                        ="Usage Left: " & userRateLimit
                     ZIndex: =3
 
                 "Progress1 As 'Progress Bar'":
@@ -191,8 +194,8 @@
                                 !IsBlank(SearchTextInput1.Text),
                                 Search(
                                     Filter(
-                                        'mgpt_reponses',
-                                        'User' = User().Email
+                                        mgpt_reponses,
+                                        User = User().Email
                                     ),
                                     SearchTextInput1.Text,
                                     "cr833_prompt"
@@ -243,8 +246,7 @@
                             ZIndex: =3
 
                     SearchTextInput1 As text:
-                        BorderColor: =RGBA(89, 0, 0, 1)
-                        BorderThickness: =2
+                        BorderColor: =RGBA(102, 182, 227, 1)
                         Color: =RGBA(0, 0, 0, 1)
                         Default: =
                         DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -260,6 +262,7 @@
                         ZIndex: =3
 
                 "GalleryChat As gallery.'BrowseLayout_Flexible_SocialFeed_ver4.0'":
+                    AlignInContainer: =AlignInContainer.SetByContainer
                     BorderColor: =RGBA(89, 0, 0, 1)
                     Default: =Last(mgpt_reponses)
                     DelayItemLoading: =true
@@ -282,7 +285,7 @@
                                 Filter(
                                     mgpt_reponses,
                                     User = User().Email,
-                                    'favorite' = true
+                                    favorite = true
                                 ),
                                 'Created On',
                                 SortOrder.Descending
@@ -310,8 +313,8 @@
                             )
                         )
                     Layout: =Layout.Vertical
-                    LayoutMinHeight: =287
-                    LayoutMinWidth: =320
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =100
                     LoadingSpinner: =LoadingSpinner.Data
                     ShowNavigation: =true
                     TemplatePadding: =4
@@ -339,7 +342,7 @@
                         Color: =RGBA(0, 0, 0, 1)
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         DisplayMode: =DisplayMode.View
-                        Height: =28
+                        Height: =Self.Size
                         OnSelect: =Select(Parent)
                         PaddingLeft: =0
                         PaddingRight: =0
@@ -353,6 +356,7 @@
 
                     Seperator_1 As rectangle:
                         BorderColor: =RGBA(153, 207, 236, 1)
+                        DisplayMode: =DisplayMode.View
                         Fill: =RGBA(232, 244, 217, 1)
                         Height: =2
                         OnSelect: =Select(Parent)
@@ -401,7 +405,7 @@
                         Text: =ThisItem.'Created On'
                         Width: =188
                         X: =993
-                        Y: =283
+                        Y: =LabelResponse_1.Y + LabelResponse_1.Height
                         ZIndex: =8
 
                     IconFavorited As icon.BookmarkFilled:
@@ -432,8 +436,7 @@
 
             TextInputPrompt As text:
                 AlignInContainer: =AlignInContainer.Stretch
-                BorderColor: =RGBA(89, 0, 0, 1)
-                BorderThickness: =2
+                BorderColor: =RGBA(102, 182, 227, 1)
                 Clear: =true
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =If(!IsBlankOrError(varSearchSelectPrompt), varSearchSelectPrompt, "")
