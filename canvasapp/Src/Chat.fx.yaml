@@ -84,12 +84,10 @@
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     DisplayMode: =DisplayMode.View
                     FillPortions: =1
-                    FontWeight: =FontWeight.Semibold
                     LayoutMinWidth: =20
                     Size: =11
                     Text: |-
-                        ="GPT 3.5
-                        Temp: " & varGPTTemperature  
+                        ="Temp: " & varGPTTemperature  
                     Width: =
                     ZIndex: =1
 
@@ -472,6 +470,7 @@
                 ZIndex: =2
 
                 LabelTokenCount As label:
+                    Align: =Align.Center
                     AutoHeight: =true
                     BorderColor: =RGBA(89, 0, 0, 1)
                     Color: =RGBA(0, 0, 0, 1)
@@ -724,9 +723,10 @@
                         Height: =ContainerClearButton.Height - Self.BorderThickness
                         HoverColor: =RGBA(255, 255, 255, 1)
                         HoverFill: =ColorFade(Color.AliceBlue,-20%)
-                        OnSelect: |
+                        OnSelect: |-
                             =Reset(TextInputPrompt);
                             Set(clearTime, Now());
+                            Set(varSearchSelectPrompt, "");
                         PaddingLeft: =0
                         PaddingRight: =10
                         Size: =10
