@@ -9,7 +9,7 @@ Welcome to Meet GPT! This allows business users to experience Azure Open AI Mode
 - Admin model driven app to manage user access and rate limits
 - More features to come!
 
-![Screenshot of Meet GPT app](images/MeetGPT_1_0_0_6.png)  ![Screenshot of Admin GPT app](images/AdminGPT_1_0_0_6.png)
+![Screenshot of Meet GPT app](images/MeetGPT_1_0_0_7.png)  ![Screenshot of Admin GPT app](images/AdminGPT_1_0_0_6.png)
 
 ## Pre-requisites
 
@@ -38,6 +38,10 @@ Use the entire OpenAI URL including the deployment name and API version
 
 ## Changelog
 
+- **Version 1.0.0.7:**
+  - New Feature - Favorites, added a flow and UI
+  - UI changes, improved layout and design
+  - Added tabs for current session, history and favorites, Prompt search
 - **Version 1.0.0.6:**
   - Added an admin model driven app, still WIP but you can change rate limits
   - Added soft rate limits where
@@ -69,8 +73,8 @@ Use the entire OpenAI URL including the deployment name and API version
 - Has not been tested enough to be production ready.
 
 ## Roadmap
-
-- [WIP] Admin section to manage user access and token/rate limits
+- [&#x2713;] Admin section to manage user access and token/rate limits
+- [&#x2713;] User Favorites with search
 - [WIP] Workflow for users to request more tokens with simple gamification
 - [Planned] Prompt analysis, for admin to monitor user activity and feedback
 - [Planned] Submit an idea section for business users to share AI use cases for their work
