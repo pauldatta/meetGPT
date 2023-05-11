@@ -1,0 +1,10 @@
+[
+  {
+    "ApiId": "/providers/microsoft.powerapps/apis/shared_logicflows",
+    "FlowNameId": "cb68f793-83ac-481d-b434-482a4717b132",
+    "Name": "mgpt_addRemoveFavorite",
+    "ServiceKind": "ConnectedWadl",
+    "Type": "ServiceInfo",
+    "WorkflowEntityId": "2f9fea65-0aef-ed11-8849-002248044d4e"
+  }
+]

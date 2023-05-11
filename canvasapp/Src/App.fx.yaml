@@ -3,10 +3,7 @@ App As appinfo:
     OnStart: |+
         =ClearCollect(
             colTabs,
-            {
-                Name: "Chat",
-                Screen: Chat
-            }
+         [{ name: "Current Session"}, {name: "History"}, {name: "Favorites"}]
         );
         ClearCollect(
             colTemperature,
@@ -25,7 +22,7 @@ App As appinfo:
         );
         Set(
             varTablistDefault,
-            ["Chat"]
+            [{ name: "Current Session"}]
         );
         // Open AI
         Set(

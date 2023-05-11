@@ -94,6 +94,7 @@
       "zeroalltabindexes": false
     },
     "Author": "",
+    "BindingErrorCount": 0,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,
     "DocumentAppType": "DesktopOrTablet",
@@ -110,7 +111,8 @@
     "InstrumentationKey": "",
     "ManualOfflineProfileId": "",
     "Name": "Meet GPT",
-    "OriginatingVersion": "1.330"
+    "OriginatingVersion": "1.330",
+    "ParserErrorCount": 0
   },
   "PublishInfo": {
     "AppName": "Meet GPT",
