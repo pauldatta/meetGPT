@@ -112,4 +112,6 @@ Meet GPT utilizes the following technologies and resources:
 - PowerPlatform
 - Azure Open AI Service
 
-Special thanks to David E for his valuable ideas and feedback.
+Special thanks -
+- David E for his the idea and feedback.
+- [The Merakist](https://www.instagram.com/the_merakist/) for UX/mockups, design.
